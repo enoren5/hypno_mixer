@@ -2,7 +2,7 @@
 
     .flex-container {
         padding: 0;
-        margin: 0;
+        margin: auto;
         list-style: none;
         border: 1px solid silver;
         -ms-box-orient: horizontal;
@@ -12,6 +12,7 @@
         display: -moz-flex;
         display: -webkit-flex;
         display: flex;
+        width:75%;
       }
       .wrap    { 
         -webkit-flex-wrap: wrap;
@@ -37,25 +38,32 @@
       }
  ul {
     padding-left:7px;
+    margin-left:25px;
+    margin-right:25px;
  }
-  h4 {
+  
+  h1 {
     margin: auto;
     text-align: center;
+    margin-top:250px;
   }
 
   h3 {
     margin: auto;
     text-align: center;
   }
-  h1 {
+
+  h4 {
     margin: auto;
     text-align: center;
+    margin-bottom:15px;
   }
 </style>
 
 <h1>HYPNO JUICER</h1>
 <br>
-<a href="{% url 'logout' %}?next={{next.path}}"> Log out? </a>
+<center><a href="{% url 'logout' %}?next={{next.path}}"> Log out? </a></center>
+<br>
 <center>
 THE EMPEROR
 <br>+
@@ -92,10 +100,16 @@ UNICURSAL HEXAGRAM SIGIL
     </ul>
 
     <ul>
-        <h4> RESEARCH </h4>
-        {% for point in research  %}
+        <h4> JOURNALING <br>[ defunct ] </h4>
+        {% comment %}
+        {% for point in journals  %}
             <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a></li>
-        {% endfor %}
+        {% endfor %}{% endcomment %}
     </ul>
-
+    <ul>
+      <h4> RESEARCH </h4>
+      {% for point in research  %}
+          <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a></li>
+      {% endfor %}
+  </ul>
 </div>
