@@ -1,8 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
+# from contents.views import CustomLoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('', CustomLoginView.as_view(),name='home'), 
+    path('accounts/',include('django.contrib.auth.urls')),
     path('', include('contents.urls')),
     # path('classroom/', include('classroom.urls')),
 ]

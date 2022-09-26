@@ -55,7 +55,7 @@
 
 <h1>HYPNO JUICER</h1>
 <br>
-
+<a href="{% url 'logout' %}?next={{next.path}}"> Log out? </a>
 <center>
 THE EMPEROR
 <br>+
@@ -63,6 +63,8 @@ THE EMPEROR
 UNICURSAL HEXAGRAM SIGIL
 </center>
 <br>
+<center><h4><a href="/preambling/rutrum">WHY SELF HYPNOSIS?</a></h4></center>
+<br><br>
 
 <div class="container flex-container wrap">
     
@@ -76,14 +78,14 @@ UNICURSAL HEXAGRAM SIGIL
 
 
     <ul>        
-        <h4> WORKING <br> SCRIPTS </h4>
+        <h4> CUSTOMIZED <br> SCRIPTS </h4>
         {% for script in scriptsuggestions %}
             <li class="flex-item"><a href="/scripting/{{script.slug}}">{{script.title}}</a></li>
         {% endfor %}
     </ul>
 
     <ul>        
-        <h4> ORIGINAL <br> SCRIPTS </h4>
+        <h4> BASE \ SOURCE <br> SCRIPTS </h4>
         {% for script in stockscripts %}
             <li class="flex-item"><a href="/stock_scripting/{{script.slug}}">{{script.title}}</a></li>
         {% endfor %}
