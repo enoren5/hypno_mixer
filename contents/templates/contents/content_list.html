@@ -1,0 +1,99 @@
+<style>
+
+    .flex-container {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        border: 1px solid silver;
+        -ms-box-orient: horizontal;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+      }
+      .wrap    { 
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }  
+      .wrap li {
+        /*background: gold;*/
+      }
+      
+      .flex-item {
+        /*background: tomato;
+        padding: 5px;*/
+        width: 150px;
+        /*height: 100px;*/
+        margin: 4px;        
+        /*line-height: 100px;*/
+        color: black;
+        
+        /*font-weight: bold;*/
+        font-size: 1em;
+        text-align: left;
+        list-style-type: none;
+      }
+ ul {
+    padding-left:7px;
+ }
+  h4 {
+    margin: auto;
+    text-align: center;
+  }
+
+  h3 {
+    margin: auto;
+    text-align: center;
+  }
+  h1 {
+    margin: auto;
+    text-align: center;
+  }
+</style>
+
+<h1>HYPNO JUICER</h1>
+<br>
+
+<center>
+THE EMPEROR
+<br>+
+<br>
+UNICURSAL HEXAGRAM SIGIL
+</center>
+<br>
+
+<div class="container flex-container wrap">
+    
+    
+    <ul>    
+        <h4> INDUCTIONS </h4>
+        {% for induction in inductions  %}
+            <li class="flex-item"><a href="/inductioning/{{induction.slug}}">{{induction.title}}</a></li>
+        {% endfor %}
+    </ul>
+
+
+    <ul>        
+        <h4> WORKING <br> SCRIPTS </h4>
+        {% for script in scriptsuggestions %}
+            <li class="flex-item"><a href="/scripting/{{script.slug}}">{{script.title}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <ul>        
+        <h4> ORIGINAL <br> SCRIPTS </h4>
+        {% for script in stockscripts %}
+            <li class="flex-item"><a href="/stock_scripting/{{script.slug}}">{{script.title}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        <h4> RESEARCH </h4>
+        {% for point in research  %}
+            <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>
