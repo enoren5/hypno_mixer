@@ -1,10 +1,9 @@
 from django.urls import path, include
-from .views import ContentListView, InductionDetailView,ResearchDetailView, PreambleDetailView, ScriptSuggestionDetailView,StockScriptDetailView, index
+from .views import ContentListView, InductionDetailView,ResearchDetailView, PreambleDetailView, ScriptSuggestionDetailView,StockScriptDetailView # index
 
 app_name = 'contents'
 
 urlpatterns = [
-    #path('', index,name='home'), 
     path('', ContentListView.as_view(),name='home'), 
     path('preambling/<str:slug>', PreambleDetailView.as_view(),name='preamble_details'), 
     path('inductioning/<str:slug>', InductionDetailView.as_view(),name='induction_details'), 
