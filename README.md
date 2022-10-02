@@ -1,6 +1,6 @@
-# <center>HYPNO_JUICER</center>
+# <p align="center">HYPNO_JUICER</p>
 
-## Using self-hypnosis for self-discipline
+### <p align="center"> Using self-hypnosis for self-discipline</p>
 
 #### TO DO:
 - [ ] Reply to KenWhitesell on forums
