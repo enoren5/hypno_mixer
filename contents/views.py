@@ -12,11 +12,11 @@ from django.contrib.auth.decorators import login_required
 
     #def get_success_url(self):
     #    return reverse_lazy('/')
-'''
+
 def index(request):
     return render(request,'contents/index.html')
-
-class ContentListView(ListView, LoginRequiredMixin):
+'''
+class ContentListView(LoginRequiredMixin,ListView):
     # model_list.html
     # model = Induction
     model = Content
@@ -35,24 +35,24 @@ class ContentListView(ListView, LoginRequiredMixin):
         context['stockscripts'] = StockScript.objects.all()
         return context
 
-class PreambleDetailView(DetailView, LoginRequiredMixin):
+class PreambleDetailView(LoginRequiredMixin,DetailView):
     model = Preamble
     context_object_name = 'preambles'
 
-class InductionDetailView(DetailView, LoginRequiredMixin):
+class InductionDetailView(LoginRequiredMixin, DetailView):
     model = Induction
     context_object_name = 'inductions'
     
-class ScriptSuggestionDetailView(DetailView, LoginRequiredMixin):
+class ScriptSuggestionDetailView(LoginRequiredMixin,DetailView):
     model = ScriptSuggestion
     context_object_name = 'scriptsuggestions'
 
-class StockScriptDetailView(DetailView, LoginRequiredMixin):
+class StockScriptDetailView(LoginRequiredMixin,DetailView):
     model = StockScript
     context_object_name = 'stockscripts'
 
 
-class ResearchDetailView(DetailView, LoginRequiredMixin):
+class ResearchDetailView(LoginRequiredMixin, DetailView):
     model = Research
     context_object_name = 'research'
     
