@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
 # from contents.views import CustomLoginView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -8,7 +10,7 @@ urlpatterns = [
     path('accounts/',include('django.contrib.auth.urls')),
     path('', include('contents.urls')),
     # path('classroom/', include('classroom.urls')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 """hypno_juicer URL Configuration

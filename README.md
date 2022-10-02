@@ -3,7 +3,7 @@
 ### <p align="center"> Using self-hypnosis for self-discipline</p>
 
 #### TO DO:
-- [ ] Reply to KenWhitesell on forums
+- [x] Write reply on Django forums 
 - [ ] Establish proper static files
 - [ ] Create navbar based on pocoo blog (non-bootstrap)
 - [ ] Establish partials
