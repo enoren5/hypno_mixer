@@ -1,8 +1,12 @@
 {% load static %}
 
+{% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 <link rel="stylesheet" href="{% static 'css/card.css' %}">
-<br>
+{% endblock %}
+
+{% block content %}
+
 <center><a href="{% url 'logout' %}?next={{next.path}}"> Log out? </a></center>
 <br>
 
@@ -61,6 +65,8 @@
           <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a></li>
       {% endfor %}
   </ul>
-</div>
+</div> <!-- end flex container -->
+
+{% endblock %}
 
 

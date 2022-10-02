@@ -1,8 +1,15 @@
-Research test
+{% extends 'base.html' %}
 
+{% block content %}
 
-{% if research  %}
-<h1>{{research.title}}</h1>
-<h2>{{research.author}}</h2>
-<p>{{research.body}}</p>
-{% endif %}
+<div class=body>
+        
+    {% if research  %}
+        <h1 class="title">{{research.title}}</h1>
+        <h4>General Research</h4>
+        <div class=author>{{research.author}}</div>
+        <br>
+        <div class=detail>{{research.body|safe}}</div> <!-- end detail class -->
+    {% endif %}
+</div> <!-- end body -->
+{% endblock %}

@@ -1,8 +1,15 @@
-<h1>Original Borrowed Scripts Auto Suggestions </h1>
+{% extends 'base.html' %}
 
+{% block content %}
 
-{% if stockscripts  %}
-<h1>{{stockscripts.title}}</h1>
-<h2>{{stockscripts.author}}</h2>
-<p>{{stockscripts.body}}</p>
-{% endif %}
+<div class=body>
+        
+    {% if stockscripts  %}
+        <h1 class="title">{{stockscripts.title}}</h1>
+        <h4>Original Borrowed Scripts Auto Suggestions</h4>
+        <div class=author>{{stockscripts.author}}</div>
+        <br>
+        <div class=detail>{{stockscripts.body|safe}}</div> <!-- end detail class -->
+    {% endif %}
+</div> <!-- end body -->
+{% endblock %}
