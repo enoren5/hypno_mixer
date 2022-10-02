@@ -1,0 +1,42 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="" type="image/x-icon">
+  <!-- Bootstrap
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- For at_random/about/essay content -->
+  {% block extra_head %}{% endblock %}
+
+  
+  <title>Unspecified</title>
+</head>
+
+<body>
+    <div class=container>
+  
+  <!-- NavBar -->
+
+  {% include 'partials/_navbar.html' %}
+
+  
+  {% block content %} {% endblock %}
+  
+
+  <!-- Footer -->
+  </div><!--end container-->
+
+
+</body>
+
+</html>

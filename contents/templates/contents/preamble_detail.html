@@ -1,7 +1,17 @@
 
 
-{% if preambles  %}
-    <h1>{{preambles.title}}</h1>
-    <h2>{{preambles.author}}</h2>
-    <p>{{preambles.body}}</p>
-{% endif %}
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class=body>
+        
+    {% if preambles  %}
+        <h1 class="title">{{preambles.title}}</h1>
+        <h4>Preamble</h4>
+        <div class=author>{{preambles.author}}</div>
+        <br>
+        <div class=detail>{{preambles.body|safe}}</div> <!-- end detail class -->
+    {% endif %}
+</div> <!-- end body -->
+{% endblock %}
