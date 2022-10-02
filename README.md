@@ -1,4 +1,5 @@
-<center># HYPNO_JUICER</center>
+# <center>HYPNO_JUICER</center>
+
 ## Using self-hypnosis for self-discipline
 
 #### TO DO:
