@@ -1,0 +1,106 @@
+body {
+    min-height: 100vh;
+    background: #212534;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    }
+    
+h1 {
+    margin: auto;
+    text-align: center;
+    margin-top:50px;
+    color: white;
+    }
+    
+h3 {
+    margin: auto;
+    text-align: center;
+    color: white;
+    }
+    
+h4 {
+    margin: auto;
+    text-align: center;
+    margin-bottom:15px;
+    color: white;
+    }
+
+.flex-container {
+    padding: 0;
+    margin: auto;
+    list-style: none;
+    border: 1px solid silver;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    width:75%;
+    max-width: 812px;
+  }
+.wrap    { 
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }  
+.wrap li {
+    /*background: gold;*/
+  }
+  
+.flex-item {
+    /*background: tomato;
+    padding: 5px;*/
+    width: 150px;
+    /*height: 100px;*/
+    margin: 4px;        
+    /*line-height: 100px;*/
+    color: black;
+    
+    /*font-weight: bold;*/
+    font-size: 1em;
+    text-align: left;
+    list-style-type: circle;
+    color: white;
+  }
+ul {
+padding-left:7px;
+margin-left:25px;
+margin-right:25px;
+}
+
+
+
+@property --rotate {
+syntax: "<angle>";
+initial-value: 132deg;
+inherits: false;
+}
+
+:root {
+--card-height: 25vh;
+--card-width: calc(var(--card-height) / 1.5);
+}
+
+
+
+
+a {
+color: white;
+text-decoration: underline;
+font-family: sans-serif;
+font-weight: bold;
+margin-top: 2rem;
+}
+
+img {
+width:80%;
+}
+.hex {
+width:15%;
+margin-bottom: 50px;
+}

@@ -4,7 +4,7 @@
 
 #### TO DO:
 - [x] Write reply on Django forums 
-- [ ] Establish proper static files
+- [x] Establish proper static files
 - [ ] Create navbar based on pocoo blog (non-bootstrap)
 - [ ] Establish partials
 - [ ] Heroku:
