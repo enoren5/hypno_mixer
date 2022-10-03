@@ -60,11 +60,26 @@
         {% endfor %}{% endcomment %}
     </ul>
     <ul>
+      <div class="box-test">
       <h4> RESEARCH </h4>
       {% for point in research  %}
           <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a></li>
       {% endfor %}
+      </div> <!-- end  box-test -->
   </ul>
+  <ul>
+    
+    <h4> LITERATURE </h4>
+    <div class="box-test">
+        <li class="flex-item"> Udemy: <a href="https://www.udemy.com/course/self-hypnosis-mastery-hypnosis-for-personal-development/">Self Hypnosis Mastery: Hypnosis for Personal Development</a></li>
+        <li class="flex-item"> Udemy: <a href="https://www.udemy.com/course/hypnotherapy-mastery-the-ultimate-hypnotherapy-training/">Hypnotherapy Practitioner Certificate (Hypnotherapy Mastery)</a></li>
+        <li class="flex-item"> Book: <a href="{% static 'books/Blair_2004.pdf' %}">Blair (2004) Instant Self-Hypnosis - How to Hypnotize Yourself with Your Eyes Open.pdf</a></li>
+        <li class="flex-item"> Book: <a href="{% static 'books/Blair_2007.pdf' %}">Blair (2007) Self-Hypnosis Revolution - The Amazingly Simple Way to Use Self-Hypnosis to Change Your Life.pdf</a></li>
+        <li class="flex-item"> Book: <a href="{% static 'books/Blair_2010.pdf' %}">Blair (2010) MORE Instant Self Hypnosis - Hypnotize Yourself As You Read.epub</a></li>
+        <li class="flex-item">Book:  <a href="{% static 'books/Ledochowski_2008.pdf' %}">Ledochowski (2008) The Power of Self-Hypnosis For Guaranteed Results Home Study Program Manual Final.pdf</a></li>
+    </div> <!-- end  box-test -->
+    
+</ul>
 </div> <!-- end flex container -->
 
 {% endblock %}

@@ -104,3 +104,28 @@ width:80%;
 width:15%;
 margin-bottom: 50px;
 }
+
+.box-test {
+  max-height: 250px;
+  overflow: auto;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+  border: 1px solid gray;
+  border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+  background: gray;  
+  border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+  background: white;  
+  }
