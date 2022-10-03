@@ -1,0 +1,1 @@
+web: gunicorn hypno_juicer.wsgi 
