@@ -128,7 +128,6 @@ LOGIN_REDIRECT_URL = '/'
 '''
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -136,24 +135,23 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / "hypno_juicer/static"
 '''
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [ os.path.join(BASE_DIR,'static') ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 '''
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [str(BASE_DIR.joinpath("pages/static"))]
+STATICFILES_DIRS = [str(BASE_DIR.joinpath("hypno_juicer/static"))]
 STATIC_ROOT = str(BASE_DIR.joinpath("static"))
 '''
 
-# Commented out this (Originally from John Elder):
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-# Accoding to: https://stackoverflow.com/a/66661021/6095646
-# Trying this instead : 
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+'''
+Commented out this (Originally from John Elder):
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+Accoding to: https://stackoverflow.com/a/66661021/6095646
+Trying this instead : 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+'''
 
-
-
+STATIC_URL = '/staticfiles/'
+STATICFILES_DIRS = [ os.path.join(BASE_DIR,'static') ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # I got the below from:
 # https://stackoverflow.com/questions/53859972/django-whitenoise-500-server-error-in-non-debug-mode
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
