@@ -146,16 +146,16 @@ Commented out this (Originally from John Elder):
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 Accoding to: https://stackoverflow.com/a/66661021/6095646
 Trying this instead : 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 '''
+
 
 STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [ os.path.join(BASE_DIR,'static') ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # I got the below from:
 # https://stackoverflow.com/questions/53859972/django-whitenoise-500-server-error-in-non-debug-mode
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 django_heroku.settings(locals())
 # Below was suggested here : https://stackoverflow.com/a/52314952/6095646 
