@@ -7,9 +7,9 @@
 - [x] Establish proper static files
 - [x] Create navbar based on pocoo blog (non-bootstrap)
 - [x] Establish partials
-- [ ] Heroku:
+- [x] Heroku:
     - [x] Prep staging PostgreSQL db (for all other repos too)
-    - [ ] Deploy hypno_juicer (staging and prod) with buildpacks    
+    - [x] Deploy hypno_juicer (staging and prod) with buildpacks    
     - [x] Test AC Conversion card working to replace regular CAD Prepaid
 - [x] Add bibliography under LITERATURE section + HTML scroll bars for lengthy content boxes
 - [ ] Enter testing as well as prod data 
