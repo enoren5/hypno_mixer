@@ -5,8 +5,11 @@ from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
-''' class CustomLoginView(LoginView):
-    #template_name = 'registration/login.html'
+
+'''
+class CustomLoginView(LoginView):
+    form_class = LoginForm
+    template_name = 'registration/login.html'
     fields = '__all__'
     redirect_authenticated_user = True
 
@@ -16,6 +19,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request,'contents/index.html')
 '''
+
 class ContentListView(LoginRequiredMixin,ListView):
     # model_list.html
     # model = Induction

@@ -43,7 +43,7 @@ h4 {
     display: -webkit-flex;
     display: flex;
     width:75%;
-    max-width: 831px;
+    max-width: 878px;
   }
 .wrap    { 
     -webkit-flex-wrap: wrap;
@@ -59,7 +59,7 @@ h4 {
 .flex-item {
     /*background: tomato;
     padding: 5px;*/
-    width: 150px;
+    width: 225px;
     /*height: 100px;*/
     margin: 4px;        
     /*line-height: 100px;*/
@@ -76,19 +76,6 @@ padding-left:7px;
 margin-left:25px;
 margin-right:25px;
 /*line-height: 2em;*/
-}
-
-
-
-@property --rotate {
-syntax: "<angle>";
-initial-value: 132deg;
-inherits: false;
-}
-
-:root {
---card-height: 25vh;
---card-width: calc(var(--card-height) / 1.5);
 }
 
 

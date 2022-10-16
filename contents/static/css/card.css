@@ -1,4 +1,15 @@
 
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+  }
+  
+  :root {
+  --card-height: 25vh;
+  --card-width: calc(var(--card-height) / 1.5);
+  }
+
 .card {
     background: #191c29;
     width: var(--card-width);
@@ -14,7 +25,11 @@
     color: rgb(88 199 250 / 0%);
     cursor: pointer;
     font-family: cursive;
-    }
+    float: right;
+    margin-top: 35px;
+    margin-left: 35px;
+    margin-bottom: 35px;
+  }
     
     .card:hover {
     color: white;
@@ -69,3 +84,5 @@
       --rotate: 360deg;
     }
     }
+
+    img {width:80%}
