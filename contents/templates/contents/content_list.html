@@ -21,64 +21,86 @@
  <div class="card">
   <img src="https://i.imgur.com/ob343qN.jpg">
 </div> 
--->
+
   
   <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/q0cDh7NjhRo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </center>
-
-<br>
-<br>
-
-<br>
-<center><h4><a href="/preambling/rutrum">WHY SELF HYPNOSIS?</a></h4></center>
-<br><br>
+-->
 <center>
-  <img class="hex" src="https://i.imgur.com/3egrIw5.png">
-</center>
+    <img class="hex" src="https://i.imgur.com/3egrIw5.png">
+  </center>
+
+    <br>
+    <br>
+    <br>
+
+    <center><h4><a href="/preambling/#">IN GENREAL : WHY SELF HYPNOSIS?</a></h4></center>
+
+    <br><br>
+
+    <center><h4><a href="/preambling/#">MY PERSONAL USE CASES FOR SELF HYPNOSIS</a></h4></center>
+
+    <br><br>
+
+    <center><h4><a href="/preambling/#">HOW TO</a></h4></center>
+
+    <br><br>
+
+
+
+
 <div class="container flex-container wrap">
-        
+    <ul>      
+        <h4> RESEARCH </h4>
+        <div class="box">
+        {% for point in research  %}
+            <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a></li>
+        {% endfor %}
+        </div> <!-- end  box -->
+    </ul>    
     <ul>    
         <h4> INDUCTIONS </h4>
+        <div class="box">
         {% for induction in inductions  %}
             <li class="flex-item"><a href="/inductioning/{{induction.slug}}">{{induction.title}}</a></li>
         {% endfor %}
+    </div> <!-- end  box -->
     </ul>
 
 
     <ul>        
         <h4> CUSTOMIZED <br> SCRIPTS </h4>
+        <div class="box">
         {% for script in scriptsuggestions %}
             <li class="flex-item"><a href="/scripting/{{script.slug}}">{{script.title}}</a></li>
         {% endfor %}
+    </div> <!-- end  box -->
     </ul>
 
     <ul>        
         <h4> BASE \ SOURCE <br> SCRIPTS </h4>
+        <div class="box">
         {% for script in stockscripts %}
             <li class="flex-item"><a href="/stock_scripting/{{script.slug}}">{{script.title}}</a></li>
         {% endfor %}
+    </div> <!-- end  box -->
     </ul>
 
     <ul>
         <h4> JOURNALING <br>[ defunct ] </h4>
+        <div class="box">
         {% comment %}
         {% for point in journals  %}
             <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a></li>
         {% endfor %}{% endcomment %}
+        </div> <!-- end  box -->
     </ul>
-    <ul>
-      <div class="box-test">
-      <h4> RESEARCH </h4>
-      {% for point in research  %}
-          <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a></li>
-      {% endfor %}
-      </div> <!-- end  box-test -->
-  </ul>
+ 
   <ul>
     
-    <h4> LITERATURE </h4>
-    <div class="box-test">
+    <h4> SELECT <br> LITERATURE </h4>
+    <div class="box">
         <li class="flex-item"> Udemy: Burns' <a href="https://www.udemy.com/course/self-hypnosis-mastery-hypnosis-for-personal-development/">Self Hypnosis Mastery: Hypnosis for Personal Development</a></li>
         <li class="flex-item"> Udemy: Burns' <a href="https://www.udemy.com/course/hypnotherapy-mastery-the-ultimate-hypnotherapy-training/">Hypnotherapy Practitioner Certificate (Hypnotherapy Mastery)</a></li>
         <li class="flex-item"> Book: <a href="{% static 'books/Blair_2004.pdf' %}">Blair (2004) Instant Self-Hypnosis - How to Hypnotize Yourself with Your Eyes Open.pdf</a></li>
@@ -87,7 +109,7 @@
         <li class="flex-item">Book:  <a href="{% static 'books/Ledochowski_2008.pdf' %}">Ledochowski (2008) The Power of Self-Hypnosis For Guaranteed Results Home Study Program Manual Final.pdf</a></li>
         <li class="flex-item"> Michael Newton's Life Between Lives? </li>
         <li class="flex-item"> Georgina Canon's books?</li>
-    </div> <!-- end  box-test -->
+    </div> <!-- end  box -->
     </ul>
 
     <ul>    
