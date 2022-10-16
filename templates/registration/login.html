@@ -16,25 +16,23 @@
 </head>
 
 <body>
+    <div id="spacer"></div>
     {% if form.errors %}
-        <p style="color:crimson;">Your username or password was incorrect. Try again.</p>
+        <p style="color:crimson; text-align:center;">Your username or password was incorrect. Try again.</p>
     {% endif %}
 
     {% if next %}
         {% if user.is_authenticated %}
-            <p style="color:crimson;">You dont have permission for this page</p>
+            <p style="color:crimson; text-align:center;">You dont have permission for this page</p>
 
         {% else %}
-            <p style="color:black;">Please login to see this page</p>
+            <p style="color:black; text-align:center;" >Please login to see this page</p>
         {% endif %}
     {% endif %}
 
 <form method='post' action="{% url 'login' %}">
     {% csrf_token %}
-    <div id="spacer">
-
-    </div>
-    
+        
     <h2>
     {{form.username.label_tag}}
     {{form.username}}
