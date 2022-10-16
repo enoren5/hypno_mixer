@@ -1,23 +1,51 @@
-{% if form.errors %}
-    <p style="color:crimson;">Your username or password was incorrect. Try again.</p>
-{% endif %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Logged Out Page</title>
+    <style>
+    h2 {
+        text-align: center;
+    }
+    #spacer {
+        height: 15%;
+    }
+</style>
+</head>
 
-{% if next %}
-    {% if user.is_authenticated %}
-        <p style="color:crimson;">You dont have permission for this page</p>
-
-    {% else %}
-        <p style="color:crimson;">Please login to see this page</p>
+<body>
+    {% if form.errors %}
+        <p style="color:crimson;">Your username or password was incorrect. Try again.</p>
     {% endif %}
-{% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p style="color:crimson;">You dont have permission for this page</p>
+
+        {% else %}
+            <p style="color:black;">Please login to see this page</p>
+        {% endif %}
+    {% endif %}
 
 <form method='post' action="{% url 'login' %}">
     {% csrf_token %}
+    <div id="spacer">
+
+    </div>
+    
+    <h2>
     {{form.username.label_tag}}
     {{form.username}}
+    </h2>
+    <h2>
     {{form.password.label_tag}}
     {{form.password}}
     <input type="submit" value='login'>
+    </h2>
     <input type="hidden" name='next' value="{{next}}">
 
  </form> 
+</body>
+</html>
