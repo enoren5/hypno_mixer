@@ -6,9 +6,8 @@
         
     {% if stockscripts  %}
         <h1 class="title">{{stockscripts.title}}</h1>
-        <h4>Original Borrowed Scripts Auto Suggestions</h4>
-        <div class=author>{{stockscripts.author}}</div>
-        <br>
+        <h3><em>Original Borrowed Scripts Auto Suggestions</em></h3>
+        <div class=author>Author: {{stockscripts.author}}</div>
         <div class=detail>{{stockscripts.body|safe}}</div> <!-- end detail class -->
     {% endif %}
 </div> <!-- end body -->

@@ -6,9 +6,8 @@
         
     {% if inductions  %}
         <h1 class="title">{{inductions.title}}</h1>
-        <h4>Inductions</h4>
-        <div class=author>{{inductions.author}}</div>
-        <br>
+        <h3><em>Inductions</em></h3>
+        <div class=author>Author: {{inductions.author}}</div>
         <div class=detail>{{inductions.body|safe}}</div> <!-- end detail class -->
     {% endif %}
 </div> <!-- end body -->

@@ -21,7 +21,15 @@ h2                          { margin: 25px 0 10px 0; }
 h3                          { margin: 35px 0 10px 0; }
 h1                          { font-size: 52px; line-height: 56px; }
 h2                          { font-size: 42px; line-height: 44px; }
-h3                          { font-size: 36px; line-height: 38px; }
+h3                          { font-size: 20px; line-height: 38px; }
+h4                          {   float: center; 
+                                margin: 0 auto;
+                                text-align: center;
+                                margin-top: 100px;
+                                /*display: inline-block;
+                                margin-left: 50%; /* From parent width 
+                                transform: translateX(-50%); /* use self width which can be unknown */
+                            }
 
 h1 em                       { color: black; font-size: 32px; display: block;
                               margin-left: 25px; margin-top: -15px; }
