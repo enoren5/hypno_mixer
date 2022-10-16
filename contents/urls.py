@@ -5,7 +5,7 @@ app_name = 'contents'
 
 urlpatterns = [
     path('', ContentListView.as_view(),name='home'), 
-    path('preambling/<str:slug>', PreambleDetailView.as_view(),name='preamble_details'), 
+    path('preambles/<str:slug>', PreambleDetailView.as_view(),name='preamble_details'), 
     path('inductioning/<str:slug>', InductionDetailView.as_view(),name='induction_details'), 
     path('scripting/<str:slug>', ScriptSuggestionDetailView.as_view(),name='scriptsuggestion_detail'), 
     path('stock_scripting/<str:slug>', StockScriptDetailView.as_view(),name='stockscript_detail'), 
