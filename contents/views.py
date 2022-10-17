@@ -24,6 +24,7 @@ class ContentListView(LoginRequiredMixin,ListView):
     # model_list.html
     # model = Induction
     model = Content
+    # login_url = '/'
     # template_name = 'home.html'
     
     # fields =['author','title',]
