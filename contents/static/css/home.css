@@ -43,7 +43,7 @@ h4 {
     display: -webkit-flex;
     display: flex;
     width:75%;
-    max-width: 878px;
+    max-width: 900px;
   }
 .wrap    { 
     -webkit-flex-wrap: wrap;
@@ -80,7 +80,7 @@ margin-right:25px;
 
 
 a {
-color: black;
+color: #006200; 
 text-decoration: underline;
 /*text-decoration: none;*/
 font-family: sans-serif;
@@ -90,15 +90,16 @@ margin-top: 2rem;
 
 a:hover {
   text-decoration: none;
+  color: #2771b5; 
 }
 
 a:active {
   color: gray;
 }
 
-a:visited {
+/*a:visited {
   color: indigo;
-}
+}*/
 
 img {
 width:80%;
@@ -109,14 +110,14 @@ margin-bottom: 50px;
 }
 
 .box {
-  max-height: 250px;
+  max-height: 350px;
   overflow: auto;
 }
 
 /* Scrollbar styles */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 15px;
+  height: 0px;
   }
   
   ::-webkit-scrollbar-track {
