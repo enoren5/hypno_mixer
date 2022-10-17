@@ -163,3 +163,6 @@ django_heroku.settings(locals())
 # Below was suggested here : https://stackoverflow.com/a/52314952/6095646 
 DEBUG_PROPAGATE_EXCEPTIONS = True
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+
+DATABASES['default']['CONN_MAX_AGE'] = 0
+
