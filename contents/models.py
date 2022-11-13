@@ -1,5 +1,8 @@
 from django.db import models
 
+class GatewayProtect(models.Model):
+    is_protected = models.BooleanField(default=True)
+    
 class Content(models.Model):
     pass
 
