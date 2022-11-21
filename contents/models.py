@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.admin.models import CHANGE, LogEntry
+# from django.contrib.admin.models import CHANGE, LogEntry
 
 class GatewayProtect(models.Model):
     is_protected = models.BooleanField(default=True)
@@ -27,13 +27,13 @@ class Induction(models.Model):
     def __str__(self):
         return f'{self.title}'
 
-class ScriptSuggestion(LogEntry,models.Model):
+class ScriptSuggestion(models.Model):
     # id = models.IntegerField(blank=False, null=False)
     title = models.CharField(max_length=300,blank=True)
     body = models.TextField(max_length=300000,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
-    changed = LogEntry.objects.filter(action_flag=CHANGE,blank=False, null=False)
+    # changed = LogEntry.objects.filter(action_flag=CHANGE,blank=False, null=False)
     
     def __str__(self):
         return f'{self.title}'

@@ -36,7 +36,7 @@ class ContentListView(LoginRequiredMixin,ListView):
         context['inductions'] = Induction.objects.all()
         context['preambles'] = Preamble.objects.all()
         context['research'] = Research.objects.all()
-        context['scriptsuggestions'] = ScriptSuggestion.objects.all().order_by('-changed')
+        context['scriptsuggestions'] = ScriptSuggestion.objects.all()
 
         context['stockscripts'] = StockScript.objects.all()
         return context
@@ -49,8 +49,9 @@ class InductionDetailView(LoginRequiredMixin, DetailView):
     model = Induction
     context_object_name = 'inductions'
     
-class ScriptSuggestionDetailView(LoginRequiredMixin,DetailView):
+class ScriptSuggestionDetailView(LoginRequiredMixin,LogEntry,DetailView):
     model = ScriptSuggestion
+    #queryset = LogEntry.objects.order_by(action_flag=CHANGE)
     context_object_name = 'scriptsuggestions'
 
 class StockScriptDetailView(LoginRequiredMixin,DetailView):
