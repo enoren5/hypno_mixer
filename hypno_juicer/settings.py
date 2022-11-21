@@ -36,13 +36,13 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'contents.apps.ContentsConfig',
+    'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -169,3 +169,9 @@ DATABASES['default']['CONN_MAX_AGE'] = 0
 
 CKEDITOR_BASEPATH = "/staticfiles/ckeditor/ckeditor/"
 
+
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+    },
+}
