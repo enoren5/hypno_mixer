@@ -5,7 +5,7 @@ from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.admin.models import CHANGE, LogEntry
 '''
 class CustomLoginView(LoginView):
     form_class = LoginForm
@@ -36,7 +36,8 @@ class ContentListView(LoginRequiredMixin,ListView):
         context['inductions'] = Induction.objects.all()
         context['preambles'] = Preamble.objects.all()
         context['research'] = Research.objects.all()
-        context['scriptsuggestions'] = ScriptSuggestion.objects.all()
+        context['scriptsuggestions'] = ScriptSuggestion.objects.all().order_by('-changed')
+
         context['stockscripts'] = StockScript.objects.all()
         return context
 

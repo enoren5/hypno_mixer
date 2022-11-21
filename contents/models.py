@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.admin.models import CHANGE, LogEntry
 
 class GatewayProtect(models.Model):
     is_protected = models.BooleanField(default=True)
@@ -13,7 +14,7 @@ class Preamble(models.Model):
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     # posting_date = models.DateField(auto_now=False, auto_now_add=False, **options), https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.DateField
-    
+
     def __str__(self):
         return f'{self.title}'
     
@@ -26,12 +27,14 @@ class Induction(models.Model):
     def __str__(self):
         return f'{self.title}'
 
-class ScriptSuggestion(models.Model):
+class ScriptSuggestion(LogEntry,models.Model):
+    # id = models.IntegerField(blank=False, null=False)
     title = models.CharField(max_length=300,blank=True)
     body = models.TextField(max_length=300000,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
-
+    changed = LogEntry.objects.filter(action_flag=CHANGE,blank=False, null=False)
+    
     def __str__(self):
         return f'{self.title}'
 
