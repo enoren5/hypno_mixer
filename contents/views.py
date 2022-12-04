@@ -6,6 +6,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.models import CHANGE, LogEntry
+from django.db.models import OuterRef, Subquery
+from django.contrib.contenttypes.models import ContentType
+from django.db.models.functions import Cast
+from django.db.models import CharField
+
 '''
 class CustomLoginView(LoginView):
     form_class = LoginForm
@@ -49,9 +54,24 @@ class InductionDetailView(LoginRequiredMixin, DetailView):
     model = Induction
     context_object_name = 'inductions'
     
-class ScriptSuggestionDetailView(LoginRequiredMixin,LogEntry,DetailView):
+class ScriptSuggestionDetailView(LoginRequiredMixin,DetailView):
     model = ScriptSuggestion
-    #queryset = LogEntry.objects.order_by(action_flag=CHANGE)
+    
+    script_type = ContentType.objects.get_for_model(ScriptSuggestion)
+    
+    ScriptSuggestion.objects.annotate(
+        last_change=Subquery(
+            LogEntry.objects.filter(
+                content_type=script_type,
+                action_flag=CHANGE,
+                object_id=Cast(
+                    OuterRef('id'), 
+                    CharField()
+                    )
+            ).order_by('-action_time').values('action_time')[:1]
+        )
+    ).order_by('-last_change')
+        
     context_object_name = 'scriptsuggestions'
 
 class StockScriptDetailView(LoginRequiredMixin,DetailView):
@@ -61,8 +81,23 @@ class StockScriptDetailView(LoginRequiredMixin,DetailView):
 
 class ResearchDetailView(LoginRequiredMixin, DetailView):
     model = Research
-    context_object_name = 'research'
+        
+    script_type = ContentType.objects.get_for_model(Research)
     
+    Research.objects.annotate(
+        last_change=Subquery(
+            LogEntry.objects.filter(
+                content_type=script_type,
+                action_flag=CHANGE,
+                object_id=Cast(
+                    OuterRef('id'), 
+                    CharField()
+                    )
+            ).order_by('-action_time').values('action_time')[:1]
+        )
+    ).order_by('-last_change')
+    
+    context_object_name = 'research'
         
 '''def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
