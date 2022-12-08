@@ -166,3 +166,5 @@ COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 DATABASES['default']['CONN_MAX_AGE'] = 0
 
+
+ADMIN_PATH = os.environ.get('ADMIN_PATH')+'/' if 'ADMIN_PATH' in os.environ else 'admin/'
