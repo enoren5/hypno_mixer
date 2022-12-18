@@ -1,5 +1,6 @@
 from django.db import models
 # from django.contrib.admin.models import CHANGE, LogEntry
+from ckeditor.fields import RichTextField
 
 class GatewayProtect(models.Model):
     is_protected = models.BooleanField(default=True)
@@ -11,6 +12,7 @@ class Content(models.Model):
 class Preamble(models.Model):
     title = models.CharField(max_length=300,blank=True)
     body = models.TextField(max_length=300000,blank=True)
+    #body = models.RichTextField(config_name='awesome_ckeditor')
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     # posting_date = models.DateField(auto_now=False, auto_now_add=False, **options), https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.DateField
@@ -31,6 +33,7 @@ class ScriptSuggestion(models.Model):
     # id = models.IntegerField(blank=False, null=False)
     title = models.CharField(max_length=300,blank=True)
     body = models.TextField(max_length=300000,blank=True)
+    geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     # changed = LogEntry.objects.filter(action_flag=CHANGE,blank=False, null=False)
@@ -40,6 +43,7 @@ class ScriptSuggestion(models.Model):
 
 class Research(models.Model):
     title = models.CharField(max_length=300,blank=True)
+    geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     body = models.TextField(max_length=300000,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)

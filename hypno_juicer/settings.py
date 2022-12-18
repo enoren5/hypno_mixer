@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'contents.apps.ContentsConfig',
+    'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,13 +152,16 @@ Trying this instead :
 '''
 
 
-STATIC_URL = '/staticfiles/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [ os.path.join(BASE_DIR,'static') ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
 # I got the below from:
 # https://stackoverflow.com/questions/53859972/django-whitenoise-500-server-error-in-non-debug-mode
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+''' 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage" 
+'''
 
 django_heroku.settings(locals())
 # Below was suggested here : https://stackoverflow.com/a/52314952/6095646 
@@ -168,3 +172,20 @@ DATABASES['default']['CONN_MAX_AGE'] = 0
 
 
 ADMIN_PATH = os.environ.get('ADMIN_PATH')+'/' if 'ADMIN_PATH' in os.environ else 'admin/'
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+'''
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': 300,
+    },
+}
+'''
+
+'''CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+    },
+}
+'''
