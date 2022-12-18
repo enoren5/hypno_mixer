@@ -8,3 +8,4 @@ psycopg2
 python-decouple
 sqlparse
 whitenoise
+django-ckeditor
