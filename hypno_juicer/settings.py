@@ -27,7 +27,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+# DEBUG = config('DEBUG', default=True, cast=bool)
+
+if os.environ.get('DEBUG', '') != 'False':
+    # These are testing settings:
+    DEBUG = True # local + staging
+    SECURE_HSTS_SECONDS = 0
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+    SECURE_HSTS_PRELOAD = False
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+else:
+    # These are prod settings:
+    DEBUG = False # Set to `False` for prod when done testing (for when the project is finally Live)
+    SECURE_HSTS_SECONDS = 7200
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    
 
 ALLOWED_HOSTS = ['*']
 
