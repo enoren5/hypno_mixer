@@ -37,6 +37,7 @@ class ScriptSuggestion(models.Model):
 
 class Research(models.Model):
     title = models.CharField(max_length=300,blank=True)
+    geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     body = models.TextField(max_length=300000,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
