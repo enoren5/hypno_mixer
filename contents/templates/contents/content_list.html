@@ -50,15 +50,16 @@
         <h4> RESEARCH </h4>
         <div class="box">
         {% for point in research  %}
-            <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a> {% if point.essentia1 %}<span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a>  {% if point.essentia1 %} <span>Essential</span>{% endif %}</li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>    
+
     <ul>    
         <h4> INDUCTIONS </h4>
         <div class="box">
         {% for induction in inductions  %}
-            <li class="flex-item"><a href="/inductioning/{{induction.slug}}">{{induction.title}}</a>{% if induction.essentia1 %}<span>Essential</span>{% endif %}</li>
+            <li class="flex-item"><a href="/inductioning/{{induction.slug}}">{{induction.title}}</a>  {% if induction.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
     </div> <!-- end  box -->
     </ul>
@@ -68,7 +69,7 @@
         <h4> CUSTOMIZED <br> SCRIPTS </h4>
         <div class="box">
         {% for script in scriptsuggestions %}
-            <li class="flex-item"><a href="/scripting/{{script.slug}}">{{script.title}}</a>{% if script.essentia1 %}<span>Essential</span>{% endif %}</li>
+            <li class="flex-item"><a href="/scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
          </div> <!-- end  box -->
     </ul>
@@ -77,7 +78,7 @@
         <h4> BASE \ SOURCE <br> SCRIPTS </h4>
         <div class="box">
         {% for script in stockscripts %}
-            <li class="flex-item"><a href="/stock_scripting/{{script.slug}}">{{script.title}}</a>{% if script.essentia1 %}<span>Essential</span>{% endif %}</li>
+            <li class="flex-item"><a href="/stock_scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
     </div> <!-- end  box -->
     </ul>
