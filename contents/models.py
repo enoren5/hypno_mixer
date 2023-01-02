@@ -34,7 +34,10 @@ class Induction(models.Model):
     body = models.TextField(max_length=300000,blank=True)
     
     def __str__(self):
-        return f'{self.title}'
+        if self.essentia1 == True:
+            return f'{self.title} (ESSENTIAL)'
+        if self.essentia1 == False:
+            return f'{self.title}'
 
 class ScriptSuggestion(models.Model):
     # id = models.IntegerField(blank=False, null=False)
@@ -49,7 +52,10 @@ class ScriptSuggestion(models.Model):
     # changed = LogEntry.objects.filter(action_flag=CHANGE,blank=False, null=False)
     
     def __str__(self):
-        return f'{self.title}'
+        if self.essentia1 == True:
+            return f'{self.title} (ESSENTIAL)'
+        if self.essentia1 == False:
+            return f'{self.title}'
 
 class Research(models.Model):
     title = models.CharField(max_length=300,blank=True)
@@ -62,7 +68,10 @@ class Research(models.Model):
     body = models.TextField(max_length=300000,blank=True)
     
     def __str__(self):
-        return f'{self.title}'
+        if self.essentia1 == True:
+            return f'{self.title} (ESSENTIAL)'
+        if self.essentia1 == False:
+            return f'{self.title}'
 
 class StockScript(models.Model):
     title = models.CharField(max_length=300,blank=True)
@@ -74,4 +83,7 @@ class StockScript(models.Model):
     body = models.TextField(max_length=300000,blank=True)
     
     def __str__(self):
-        return f'{self.title}'
+        if self.essentia1 == True:
+            return f'{self.title} (ESSENTIAL)'
+        if self.essentia1 == False:
+            return f'{self.title}'
