@@ -11,10 +11,14 @@ class Content(models.Model):
 # Create your models here.
 class Preamble(models.Model):
     title = models.CharField(max_length=300,blank=True)
-    body = models.TextField(max_length=300000,blank=True)
-    #body = models.RichTextField(config_name='awesome_ckeditor')
+    # essential = models.BooleanField(default=False,blank=True)
+    # The following attributes ends with '1' not 'l'
+    essentia1 = models.BooleanField(default=False,blank=True)     
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
+    body = models.TextField(max_length=300000,blank=True)
+    #body = models.RichTextField(config_name='awesome_ckeditor')
+   
     # posting_date = models.DateField(auto_now=False, auto_now_add=False, **options), https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.DateField
 
     def __str__(self):
@@ -22,9 +26,12 @@ class Preamble(models.Model):
     
 class Induction(models.Model):
     title = models.CharField(max_length=300,blank=True)
-    body = models.TextField(max_length=300000,blank=True)
+    #_essential = models.BooleanField(default=False,blank=True)
+    # The following attributes ends with '1' not 'l'
+    essentia1 = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
+    body = models.TextField(max_length=300000,blank=True)
     
     def __str__(self):
         return f'{self.title}'
@@ -32,10 +39,13 @@ class Induction(models.Model):
 class ScriptSuggestion(models.Model):
     # id = models.IntegerField(blank=False, null=False)
     title = models.CharField(max_length=300,blank=True)
-    body = models.TextField(max_length=300000,blank=True)
-    geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
+    # essential = models.BooleanField(default=False,blank=True)
+    # The following attributes ends with '1' not 'l'
+    essentia1 = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
+    body = models.TextField(max_length=300000,blank=True)
+    geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     # changed = LogEntry.objects.filter(action_flag=CHANGE,blank=False, null=False)
     
     def __str__(self):
@@ -43,19 +53,25 @@ class ScriptSuggestion(models.Model):
 
 class Research(models.Model):
     title = models.CharField(max_length=300,blank=True)
-    geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
-    body = models.TextField(max_length=300000,blank=True)
+    # essential = models.BooleanField(default=False,blank=True)
+    # The following attributes ends with '1' not 'l'
+    essentia1 = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
-
+    geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
+    body = models.TextField(max_length=300000,blank=True)
+    
     def __str__(self):
         return f'{self.title}'
 
 class StockScript(models.Model):
     title = models.CharField(max_length=300,blank=True)
-    body = models.TextField(max_length=300000,blank=True)
+    # essential = models.BooleanField(default=False,blank=True)
+    # The following attributes ends with '1' not 'l'
+    essentia1 = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
-
+    body = models.TextField(max_length=300000,blank=True)
+    
     def __str__(self):
         return f'{self.title}'

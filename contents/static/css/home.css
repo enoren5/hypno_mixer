@@ -114,6 +114,13 @@ margin-bottom: 50px;
   overflow: auto;
 }
 
+div.box span{
+  clear:both;
+  background: orange; 
+  padding:2px 5px; 
+  border-radius:5px;
+}
+
 /* Scrollbar styles */
 ::-webkit-scrollbar {
   width: 15px;
