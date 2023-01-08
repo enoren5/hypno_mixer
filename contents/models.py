@@ -1,5 +1,4 @@
 from django.db import models
-# from django.contrib.admin.models import CHANGE, LogEntry
 from ckeditor.fields import RichTextField
 
 class GatewayProtect(models.Model):

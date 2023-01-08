@@ -2,13 +2,15 @@
 
 {% block content %}
 
-<div class=body>
+<div class="body">
         
     {% if preambles  %}
         <h1 class="title">{{preambles.title}}</h1>
         <!-- <h3><em>Preamble</em></h3> -->
-        <div class=author>Author: {{preambles.author}}</div>
-        <div class=detail>{{preambles.body|safe}}</div> <!-- end detail class -->
+        <div class="author">Author: {{preambles.author}}</div>
+        <div class="detail">{{preambles.body|safe}}</div> <!-- end detail class -->
     {% endif %}
+
 </div> <!-- end body -->
+
 {% endblock %}
