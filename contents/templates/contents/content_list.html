@@ -47,10 +47,10 @@
 
 <div class="container flex-container wrap">
     <ul>      
-        <h4> RESEARCH </h4>
+        <h4> RESEARCH <br> (STUDY NOTES) </h4>
         <div class="box">
         {% for point in research  %}
-            <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a>  {% if point.essentia1 %} <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/researching/{{point.slug}}">{{point.title}}</a>  {% if point.essentia1 %} <span>Essential</span>{% endif %}</li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>    
@@ -59,7 +59,7 @@
         <h4> INDUCTIONS </h4>
         <div class="box">
         {% for induction in inductions  %}
-            <li class="flex-item"><a href="/inductioning/{{induction.slug}}">{{induction.title}}</a>  {% if induction.essentia1 %}  <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/inductioning/{{induction.slug}}">{{induction.title}}</a>  {% if induction.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
     </div> <!-- end  box -->
     </ul>
@@ -69,7 +69,7 @@
         <h4> CUSTOMIZED <br> SCRIPTS </h4>
         <div class="box">
         {% for script in scriptsuggestions %}
-            <li class="flex-item"><a href="/scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
          </div> <!-- end  box -->
     </ul>
@@ -78,7 +78,7 @@
         <h4> BASE \ SOURCE <br> SCRIPTS </h4>
         <div class="box">
         {% for script in stockscripts %}
-            <li class="flex-item"><a href="/stock_scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/stock_scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
     </div> <!-- end  box -->
     </ul>
@@ -97,14 +97,14 @@
     
     <h4> SELECT <br> LITERATURE </h4>
     <div class="box">
-        <li class="flex-item"> <strong>Book</strong>: <a href="{% static 'books/Blair_2004.pdf' %}">Blair (2004) Instant Self-Hypnosis - How to Hypnotize Yourself with Your Eyes Open.pdf</a></li>
-        <li class="flex-item"> <strong>Book</strong>: <a href="{% static 'books/Blair_2007.pdf' %}">Blair (2007) Self-Hypnosis Revolution - The Amazingly Simple Way to Use Self-Hypnosis to Change Your Life.pdf</a></li>
-        <li class="flex-item"> <strong>Book</strong>: <a href="{% static 'books/Blair_2010.pdf' %}">Blair (2010) MORE Instant Self Hypnosis - Hypnotize Yourself As You Read.pdf</a></li>
-        <li class="flex-item"><strong>Book</strong>:  <a href="{% static 'books/Ledochowski_2008.pdf' %}">Ledochowski (2008) The Power of Self-Hypnosis For Guaranteed Results Home Study Program Manual Final.pdf</a></li>
-        <li class="flex-item"> <strong>Udemy</strong>: Burns' <a href="https://www.udemy.com/course/self-hypnosis-mastery-hypnosis-for-personal-development/">Self Hypnosis Mastery: Hypnosis for Personal Development</a></li>
-        <li class="flex-item"> <strong>Udemy</strong>: Burns' <a href="https://www.udemy.com/course/hypnotherapy-mastery-the-ultimate-hypnotherapy-training/">Hypnotherapy Practitioner Certificate (Hypnotherapy Mastery)</a></li>
-        <li class="flex-item"> Michael Newton's Life Between Lives? </li>
-        <li class="flex-item"> Georgina Canon's books?</li>
+        <li class="flex-item"> - <strong>Book</strong>: <a href="{% static 'books/Blair_2004.pdf' %}">Blair (2004) Instant Self-Hypnosis - How to Hypnotize Yourself with Your Eyes Open.pdf</a></li>
+        <li class="flex-item"> - <strong>Book</strong>: <a href="{% static 'books/Blair_2007.pdf' %}">Blair (2007) Self-Hypnosis Revolution - The Amazingly Simple Way to Use Self-Hypnosis to Change Your Life.pdf</a></li>
+        <li class="flex-item"> - <strong>Book</strong>: <a href="{% static 'books/Blair_2010.pdf' %}">Blair (2010) MORE Instant Self Hypnosis - Hypnotize Yourself As You Read.pdf</a></li>
+        <li class="flex-item"> - <strong>Book</strong>:  <a href="{% static 'books/Ledochowski_2008.pdf' %}">Ledochowski (2008) The Power of Self-Hypnosis For Guaranteed Results Home Study Program Manual Final.pdf</a></li>
+        <li class="flex-item"> - <strong>Udemy</strong>: Burns' <a href="https://www.udemy.com/course/self-hypnosis-mastery-hypnosis-for-personal-development/">Self Hypnosis Mastery: Hypnosis for Personal Development</a></li>
+        <li class="flex-item"> - <strong>Udemy</strong>: Burns' <a href="https://www.udemy.com/course/hypnotherapy-mastery-the-ultimate-hypnotherapy-training/">Hypnotherapy Practitioner Certificate (Hypnotherapy Mastery)</a></li>
+        <li class="flex-item"> - Michael Newton's Life Between Lives? </li>
+        <li class="flex-item"> - Georgina Canon's books?</li>
     </div> <!-- end  box -->
     </ul>
 
