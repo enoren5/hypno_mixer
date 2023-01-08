@@ -87,8 +87,18 @@ class ContentListView(LoginRequiredMixin,ListView):
 
 class PreambleDetailView(LoginRequiredMixin,DetailView):
     model = Preamble
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            context['preambles'] = Preamble.objects.filter(is_published=True)
+        except Preamble.DoesNotExist:
+            raise Http404('Article does not exist!')
+        return context
+    
     context_object_name = 'preambles'
-
+    
+    
 class InductionDetailView(LoginRequiredMixin, DetailView):
     model = Induction
     context_object_name = 'inductions'
