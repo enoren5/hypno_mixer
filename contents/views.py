@@ -10,6 +10,7 @@ from django.db.models import OuterRef, Subquery
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import Cast
 from django.db.models import CharField
+from django.http import Http404
 
 class ContentListView(LoginRequiredMixin,ListView):
     model = Content
@@ -76,8 +77,12 @@ class ContentListView(LoginRequiredMixin,ListView):
                 )
             ).order_by('-last_change')
         
-        context['preambles'] = Preamble.objects.all()
         
+        try:
+            context['preambles'] = Preamble.objects.filter(is_published=True)
+        except Preamble.DoesNotExist:
+            raise Http404('Article does not exist!')
+    
         return context
 
 class PreambleDetailView(LoginRequiredMixin,DetailView):

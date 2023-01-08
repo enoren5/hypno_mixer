@@ -13,7 +13,8 @@ class Preamble(models.Model):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
-    essentia1 = models.BooleanField(default=False,blank=True)     
+    # essentia1 = models.BooleanField(default=False,blank=True)     
+    is_published = models.BooleanField(default=True)
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
