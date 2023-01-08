@@ -116,7 +116,8 @@ margin-bottom: 50px;
 
 div.box span{
   clear:both;
-  background: orange; 
+  background: gray; 
+  color:white;
   padding:2px 5px; 
   border-radius:5px;
 }
