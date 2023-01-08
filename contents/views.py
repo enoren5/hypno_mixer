@@ -19,15 +19,12 @@ class ContentListView(LoginRequiredMixin,ListView):
     
         # Call the base implementation first to get a context
         context = super(ContentListView, self).get_context_data(**kwargs)
-        script_type = ContentType.objects.get_for_model(Research)
-        script_type = ContentType.objects.get_for_model(ScriptSuggestion)
-    
-        context['inductions'] = Induction.objects.all()
-        context['preambles'] = Preamble.objects.all()
+        
+        script_type1 = ContentType.objects.get_for_model(ScriptSuggestion)
         context['scriptsuggestions'] = ScriptSuggestion.objects.annotate(
             last_change=Subquery(
                 LogEntry.objects.filter(
-                    content_type=script_type,
+                    content_type=script_type1,
                     action_flag=CHANGE,
                     object_id=Cast(
                         OuterRef('id'), 
@@ -36,11 +33,12 @@ class ContentListView(LoginRequiredMixin,ListView):
                     ).order_by('-action_time').values('action_time')[:1]
                 )
             ).order_by('-last_change')
-        context['stockscripts'] = StockScript.objects.all()
+        
+        script_type2 = ContentType.objects.get_for_model(Research)
         context['research'] = Research.objects.annotate(
             last_change=Subquery(
                 LogEntry.objects.filter(
-                    content_type=script_type,
+                    content_type=script_type2,
                     action_flag=CHANGE,
                     object_id=Cast(
                         OuterRef('id'), 
@@ -49,6 +47,37 @@ class ContentListView(LoginRequiredMixin,ListView):
                     ).order_by('-action_time').values('action_time')[:1]
                 )
             ).order_by('-last_change')
+        
+        script_type3 = ContentType.objects.get_for_model(Induction)
+        context['inductions'] = Induction.objects.annotate(
+            last_change=Subquery(
+                LogEntry.objects.filter(
+                    content_type=script_type3,
+                    action_flag=CHANGE,
+                    object_id=Cast(
+                        OuterRef('id'), 
+                        CharField()
+                        )
+                    ).order_by('-action_time').values('action_time')[:1]
+                )
+            ).order_by('-last_change')
+        
+        script_type4 = ContentType.objects.get_for_model(StockScript)
+        context['stockscripts'] = StockScript.objects.annotate(
+            last_change=Subquery(
+                LogEntry.objects.filter(
+                    content_type=script_type4,
+                    action_flag=CHANGE,
+                    object_id=Cast(
+                        OuterRef('id'), 
+                        CharField()
+                        )
+                    ).order_by('-action_time').values('action_time')[:1]
+                )
+            ).order_by('-last_change')
+        
+        context['preambles'] = Preamble.objects.all()
+        
         return context
 
 class PreambleDetailView(LoginRequiredMixin,DetailView):
@@ -66,7 +95,6 @@ class ScriptSuggestionDetailView(LoginRequiredMixin,DetailView):
 class StockScriptDetailView(LoginRequiredMixin,DetailView):
     model = StockScript
     context_object_name = 'stockscripts'
-
 
 class ResearchDetailView(LoginRequiredMixin, DetailView):
     model = Research    
