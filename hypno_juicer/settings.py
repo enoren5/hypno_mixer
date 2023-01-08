@@ -193,6 +193,7 @@ DATABASES['default']['CONN_MAX_AGE'] = 0
 
 ADMIN_PATH = os.environ.get('ADMIN_PATH')+'/' if 'ADMIN_PATH' in os.environ else 'admin/'
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
 '''
 CKEDITOR_CONFIGS = {
     'default': {
@@ -203,9 +204,8 @@ CKEDITOR_CONFIGS = {
 }
 '''
 
-'''CKEDITOR_CONFIGS = {
-    'awesome_ckeditor': {
-        'toolbar': 'Basic',
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
     },
 }
-'''
