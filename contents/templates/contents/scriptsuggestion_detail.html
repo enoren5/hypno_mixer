@@ -7,8 +7,10 @@
     {% if scriptsuggestions  %}
         <h1 class="title">{{scriptsuggestions.title}}</h1>
         <h3><em>Current Scripting Auto Suggestions</em> </h3>
-        <div class=author>Author: {{scriptsuggestions.author}}</div>
-        <div class=detail>{{scriptsuggestions.body|safe}}</div> <!-- end detail class -->
+        <div class="author">Author: {{scriptsuggestions.author}}</div>
+        <div class="detail">{{scriptsuggestions.body|safe}}</div> 
     {% endif %}
+
 </div> <!-- end body -->
+
 {% endblock %}
