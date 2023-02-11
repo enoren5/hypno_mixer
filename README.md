@@ -1,4 +1,4 @@
-# <p align="center">HYPNO_JUICER</p>
+# <p align="center">HYPNO_MIXER</p>
 
 ### <p align="center"> Using self-hypnosis for self-discipline</p>
 
@@ -9,7 +9,7 @@
 - [x] Establish partials
 - [x] Heroku:
     - [x] Prep staging PostgreSQL db (for all other repos too)
-    - [x] Deploy hypno_juicer (staging and prod) with buildpacks    
+    - [x] Deploy hypno_mixer (staging and prod) with buildpacks    
     - [x] Test AC Conversion card working to replace regular CAD Prepaid
 - [x] Add bibliography under LITERATURE section + HTML scroll bars for lengthy content boxes
 - [ ] Enter testing as well as prod data 

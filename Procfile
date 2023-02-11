@@ -1,1 +1,1 @@
-web: gunicorn hypno_juicer.wsgi 
+web: gunicorn hypno_mixer.wsgi 
