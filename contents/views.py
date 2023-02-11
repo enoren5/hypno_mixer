@@ -87,7 +87,8 @@ class ContentListView(LoginRequiredMixin,ListView):
 
 class PreambleDetailView(LoginRequiredMixin,DetailView):
     model = Preamble
-    
+    context_object_name = 'preambles'
+    '''
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         try:
@@ -97,7 +98,7 @@ class PreambleDetailView(LoginRequiredMixin,DetailView):
         return context
     
     context_object_name = 'preambles'
-    
+    '''
     
 class InductionDetailView(LoginRequiredMixin, DetailView):
     model = Induction
