@@ -28,6 +28,7 @@ class Induction(models.Model):
     title = models.CharField(max_length=300,blank=True)
     #_essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
+    is_published = models.BooleanField(default=True)
     essentia1 = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
@@ -44,6 +45,7 @@ class ScriptSuggestion(models.Model):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
+    is_published = models.BooleanField(default=True)
     essentia1 = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
@@ -61,6 +63,7 @@ class Research(models.Model):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
+    is_published = models.BooleanField(default=True)
     essentia1 = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
@@ -77,6 +80,7 @@ class StockScript(models.Model):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
+    is_published = models.BooleanField(default=True)
     essentia1 = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
