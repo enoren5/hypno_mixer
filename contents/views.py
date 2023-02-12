@@ -77,12 +77,12 @@ class ContentListView(LoginRequiredMixin,ListView):
                 )
             ).order_by('-last_change')
         
-        
+        '''
         try:
             context['preambles'] = Preamble.objects.filter(is_published=True)
         except Preamble.DoesNotExist:
             raise Http404('Article does not exist!')
-    
+        '''
         return context
 
 class PreambleDetailView(LoginRequiredMixin,DetailView):
@@ -92,7 +92,7 @@ class PreambleDetailView(LoginRequiredMixin,DetailView):
         if queryset is None:
             queryset = self.get_queryset()
         pk = self.kwargs.get(self.pk_url_kwarg)
-        slug = self.kwargs.get(self.slug_url_kwarg)   
+        slug = self.kwargs.get(self.slug_url_kwarg)
         if slug is not None and (pk is None or self.query_pk_and_slug):
             slug_field = self.get_slug_field()
             queryset = queryset.filter(**{slug_field: slug})
@@ -109,9 +109,22 @@ class PreambleDetailView(LoginRequiredMixin,DetailView):
                 _("No %(verbose_name)s found matching the query")
                 % {"verbose_name": queryset.model._meta.verbose_name}
             )
-        return obj
-    
-    # context_object_name = 'preambles'
+        if obj.is_published==True:
+            return obj
+        else:
+            raise Http404('I borked this one, gotta fix it!')
+    context_object_name = 'preambles'
+    ''' if obj.is_published==False:
+            raise Http404('I borked this one, gotta fix it!')
+        else:
+            return obj '''
+        
+'''
+      context = {}
+        context['preambles'] = super().Preamble.objects.get(is_published==True)
+        context.save()
+        return context
+'''
     
     
 class InductionDetailView(LoginRequiredMixin, DetailView):
@@ -130,7 +143,9 @@ class ResearchDetailView(LoginRequiredMixin, DetailView):
     model = Research    
     context_object_name = 'research'
         
-'''def get_context_data(self, **kwargs):
+'''
+
+def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(ContentDetailView, self).get_context_data(**kwargs)
         # Add in a QuerySet of all the Baklawa
