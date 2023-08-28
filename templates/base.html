@@ -19,12 +19,13 @@
   <!-- For at_random/about/essay content -->
   {% block extra_head %}{% endblock %}
 
-  
-  <title>Hypno Mixer</title>
+    <title>Hypno Mixer</title>
+
 </head>
 
 <body>
-    <div class=container>
+
+    <div class="container">
   
   <!-- NavBar -->
 
@@ -33,10 +34,11 @@
   
   {% block content %} {% endblock %}
   
-
   <!-- Footer -->
-  </div><!--end container-->
 
+  {% include 'partials/_footer.html' %}
+
+  </div><!--end container-->
 
 </body>
 

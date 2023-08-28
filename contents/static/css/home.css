@@ -86,6 +86,7 @@ text-decoration: underline;
 font-family: sans-serif;
 /*font-weight: bold;*/
 margin-top: 2rem;
+
 }
 
 a:hover {
@@ -141,3 +142,20 @@ div.box span{
   ::-webkit-scrollbar-thumb:hover {
   background: black;  
   }
+
+
+
+  div.navigation              { float: right; }
+div.header, div.navigation  { height: 25px; margin-bottom: 42px; }
+div.navigation ul           { margin: 46px; padding: 0; list-style: none; }
+div.navigation ul li        { display: inline; margin: 0 2px; padding: 0; }
+
+
+@media only screen and (max-width: 800px) {
+  div.navigation { margin-bottom: 20px; }
+}
+
+div.footer                  { margin-top: 55px; font-size: 16px;
+  text-align: right; color: #7b8894; margin-right: -33%;}
+div.footer p                { margin: 0; }
+div.footer a                { color: #7b8894; }

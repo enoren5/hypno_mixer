@@ -1,44 +1,51 @@
 {% load static %}
+<html>
+    <head>
+        {% block extra_head %}
+        <title>Hypno Mixer</title>
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex,nofollow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block extra_head %}
-<title>Hypno Mixer</title>
-<meta charset="UTF-8">
-<meta name="robots" content="noindex,nofollow" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-<link rel="stylesheet" href="{% static 'css/card.css' %}">
-{% endblock %}
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/card.css' %}">
+
+        {% endblock %}
+    </head>
+
+<body>
 
 {% block content %}
 
-<center><a href="{% url 'logout' %}?next={{next.path}}"> Log out? </a></center>
-<br>
+<div class=navigation>
+    <ul>
+      <li> <a href="/preambles/about">about</a>
+      <li> | <a href="{% url 'logout' %}?next={{next.path}}">log out</a></li>
+    </ul>
+  </div>
 
 <h1>H Y P N O  _  M I X E R</h1>
 
-<br>
-<br>
 <!-- 
  <div class="card">
   <img src="https://i.imgur.com/ob343qN.jpg">
 </div> 
 -->
-<center>
+    <center>
     <img class="hex" src="https://i.imgur.com/3egrIw5.png">
-  </center>
+    </center>
 
     <br>
-    
 
-    <center><h4><a href="/preambles/why">WHY HYPNOSIS?</a></h4></center>
-
-    <br><br>
-
-    <center><h4><a href="/preambles/my-use-cases">MY PERSONAL USE CASES FOR SELF-HYPNOSIS</a></h4></center>
+    <center><h3><a href="/preambles/why">WHY HYPNOSIS?</a></h3></center>
 
     <br><br>
 
-    <center><h4><a href="/preambles/method">HOW TO : THE METHOD AND THE TECHNIQUE</a></h4></center>
+    <center><h3><a href="/preambles/my-use-cases">MY PERSONAL USE CASES FOR SELF-HYPNOSIS</a></h3></center>
+
+    <br><br>
+
+    <center><h3><a href="/preambles/method">HOW TO : THE METHOD AND THE TECHNIQUE</a></h3></center>
 
     <br><br>
 
@@ -120,7 +127,9 @@
     </ul>
     
 </div> <!-- end flex container -->
-
+{% include 'partials/_footer.html' %}
 {% endblock %}
 
 
+</body>
+</html>
