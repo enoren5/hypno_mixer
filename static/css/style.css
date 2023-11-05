@@ -50,7 +50,7 @@ div.navigation ul           { margin: 0; padding: 0; list-style: none; }
 div.navigation ul li        { display: inline; margin: 0 2px; padding: 0; }
 div.body                    { clear: both; margin: 0 30px; line-height: 1.6; }
 div.footer                  { margin-top: 55px; font-size: 16px;
-                              text-align: right; color: #7b8894; margin-right: 33%; margin-bottom: 25px; flex-shrink: 0;}
+                              text-align: right; color: #7b8894; /*margin-right: 33%; margin-bottom: 25px; flex-shrink: 0;*/}
 div.footer p                { margin: 0; }
 div.footer a                { color: #7b8894; }
 
