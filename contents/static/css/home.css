@@ -155,7 +155,13 @@ div.navigation ul li        { display: inline; margin: 0 2px; padding: 0; }
   div.navigation { margin-bottom: 20px; }
 }
 
-div.footer                  { margin-top: 55px; font-size: 16px;
-  text-align: right; color: #7b8894; margin-right: -33%;}
+div.footer { 
+  margin-top: 55px; 
+  font-size: 16px;
+  text-align: right; 
+  color: #7b8894; 
+  margin-right: -33%;
+}
+
 div.footer p                { margin: 0; }
 div.footer a                { color: #7b8894; }
