@@ -2,6 +2,11 @@
 
 ### <p align="center"> Using self-hypnosis for self-discipline</p>
 
+## NEW in 2025:
+
+Add nix pkgs support with `default.nix` courtesy of [the NixOS manual](https://nixos.org/manual/nixpkgs/unstable/#how-to-consume-python-modules-using-pip-in-a-virtual-environment-like-i-am-used-to-on-other-operating-systems) as it came up [on the NixOS discussion forums here](https://discourse.nixos.org/t/opening-a-legacy-django-dev-environment-under-nixos/60603/4?u=enoren5).
+This is just a stop-gap until I learn to manage project packages using Flakes.
+
 #### TO DO:
 - [x] Write reply on Django forums 
 - [x] Establish proper static files
