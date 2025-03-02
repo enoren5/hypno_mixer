@@ -20,7 +20,7 @@ in pkgs.mkShell rec {
     # add them to PYTHONPATH and thus make them accessible from within the venv.
     pythonPackages.numpy
     pythonPackages.requests
-
+    pythonPackages.pip-tools
     pythonPackages.psycopg2
     
     # In this particular example, in order to compile any binary extensions they may
