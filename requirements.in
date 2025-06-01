@@ -1,6 +1,6 @@
 asgiref
 dj-database-url
-Django>4.2<5.0
+Django
 django-heroku
 gunicorn
 Pillow
