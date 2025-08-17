@@ -1,3 +1,31 @@
+hr.style-one {
+    border: 5px;
+    height: 10px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+/* Flaired edges, by Tomas Theunissen */
+
+hr.style-seven {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
 body {
     min-height: 100vh;
     background: white;
@@ -31,10 +59,11 @@ h4 {
     }
 
 .flex-container {
-    padding: 0;
-    margin: auto;
+    padding-left:75px;
+    padding-right:75px;
+    margin:  0 auto;
     list-style: none;
-    border: 1px solid silver;
+    border: 0px solid silver;
     -ms-box-orient: horizontal;
     display: -webkit-box;
     display: -moz-box;
@@ -42,8 +71,8 @@ h4 {
     display: -moz-flex;
     display: -webkit-flex;
     display: flex;
-    width:75%;
-    max-width: 900px;
+    width: 100%;
+    max-width: 100%;
   }
 .wrap    { 
     -webkit-flex-wrap: wrap;
