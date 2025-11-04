@@ -55,6 +55,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    
     'contents.apps.ContentsConfig',
     'ckeditor',
     'django.contrib.admin',
@@ -63,6 +64,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'variables_question.apps.AuthToggleConfig',
 ]
 
 MIDDLEWARE = [
@@ -89,6 +91,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'variables_question.context_processors.auth_vars',
             ],
         },
     },
