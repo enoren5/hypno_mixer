@@ -96,16 +96,10 @@
     <ul>    
         <h4> Binaural <br> Audio Files </h4>
         <div class="box">
-        <li class="flex-item"> - <a href="https://hypno-mixer.s3.us-east-2.amazonaws.com/4hzThetaDrowsy.flac"> Full hour mixed: 4hz Theta - Drowsy + Birds.flac</a></li>
-        <li class="flex-item"> - <a href="https://www.dropbox.com/s/mxmtgjg9oh0oq1l/6hz%20Theta%20-%20Fantasy.mp3?dl=0">6hz Theta - Fantasy.mp3</a></li>
-        <li class="flex-item"> - <a href="https://www.dropbox.com/s/2tppj5e53kb30l0/4hz%20Theta%20-%20Drowsy.mp3?dl=0">4hz Theta - Drowsy.mp3</a></li>
-        <li class="flex-item"> - <a href="https://www.dropbox.com/s/iji5i0nh1rtscwz/Birds%20%2B%20Brook%20loop.wav?dl=0">Birds and brook.wav</a> ambient noises</li>
-        <li class="flex-item"> - <a href="https://www.dropbox.com/s/b4xa8urb0584a6t/Rain%20%2B%20Thunder%20loop.wav?dl=0">Rain and thunder.wav</a> ambient noises</li>
-        <!-- 
-        <li class="flex-item">Placeholder Three.wav</li>
-        <li class="flex-item">Placeholder Three.wav</li>
-        <li class="flex-item">Placeholder Three.wav</li>-->
-        </div> <!-- end  box -->
+        
+        {% for item in binaurals  %}
+            <li class="flex-item"> - {{item.author_last_name}} ({{item.publication_year}}) <a href="{{item.address}}">{{item.title}}</a> </li>
+        {% endfor %}
     </ul>
     </div>
     </center>
@@ -128,14 +122,10 @@
     <ul>    
     <h4> Select <br> Literature </h4>
     <div class="box">
-        <li class="flex-item"> - <strong>Book</strong>: <a href="https://www.dropbox.com/s/v99vg9d8mtyytn4/Forbes%20Robbins%20Blair%20-%20Instant%20Self-Hypnosis_%20How%20to%20Hypnotize%20Yourself%20with%20Your%20Eyes%20Open%20%282004%29.pdf?dl=0">Blair (2004) Instant Self-Hypnosis - How to Hypnotize Yourself with Your Eyes Open.pdf</a></li>
-        <li class="flex-item"> - <strong>Book</strong>: <a href="https://www.dropbox.com/s/c0bqibrcz7viwd9/Forbes%20Blair%20-%20Self-Hypnosis%20Revolution_%20The%20Amazingly%20Simple%20Way%20to%20Use%20Self-Hypnosis%20to%20Change%20Your%20Life%20%282007%2C%20Sourcebooks%2C%20Inc.%29%20-%20libgen.lc.pdf?dl=0">Blair (2007) Self-Hypnosis Revolution - The Amazingly Simple Way to Use Self-Hypnosis to Change Your Life.pdf</a></li>
-        <li class="flex-item"> - <strong>Book</strong>: <a href="https://www.dropbox.com/s/kqzlu7jh0vzdafr/MORE%20Instant%20Self%20Hypnosis_%20Hypnotize%20Yourself%20As%20You%20Read%20%28PDF%29.pdf?dl=0">Blair (2010) MORE Instant Self Hypnosis - Hypnotize Yourself As You Read.pdf</a></li>
-        <li class="flex-item"> - <strong>Book</strong>:  <a href="https://www.dropbox.com/s/4qmacw7anezcn22/POSH%20Manual%20Final.pdf?dl=0">Ledochowski (2008) The Power of Self-Hypnosis For Guaranteed Results Home Study Program Manual Final.pdf</a></li>
-        <li class="flex-item"> - <strong>Udemy</strong>: Burns' <a href="https://www.udemy.com/course/self-hypnosis-mastery-hypnosis-for-personal-development/">Self Hypnosis Mastery: Hypnosis for Personal Development</a></li>
-        <li class="flex-item"> - <strong>Udemy</strong>: Burns' <a href="https://www.udemy.com/course/hypnotherapy-mastery-the-ultimate-hypnotherapy-training/">Hypnotherapy Practitioner Certificate (Hypnotherapy Mastery)</a></li>
-        <li class="flex-item"> - Michael Newton's Life Between Lives? </li>
-        <li class="flex-item"> - Georgina Canon's books?</li>
+            {% for literature_instance in assorted_literature  %}
+                <li class="flex-item"> - <strong>{{literature_instance.media_type}}</strong>: {{literature_instance.author_last_name}} ({{literature_instance.publication_year}}) <a href="{{literature_instance.address}}">{{literature_instance.title}}</a> </li>
+            {% endfor %}
+        
     </div> <!-- end  box -->
     </ul>
 
@@ -168,8 +158,9 @@
     <ul>      
         <h4> Assorted Periodicals </h4>
         <div class="box">
+        
         {% for article in assorted_periodicals  %}
-            <li class="flex-item"> - <a href="{{article.address}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <strong>{{article.media_type}}</strong>: {{article.author_last_name}} ({{article.publication_year}}) <a href="{{article.address}}">{{article.title}}</a> </li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>    

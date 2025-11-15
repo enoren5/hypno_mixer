@@ -35,7 +35,10 @@ body {
     padding-top: 2rem;
     padding-bottom: 2rem;
     box-sizing: border-box;
-    }
+    font-family: 'Merriweather', serif;
+    font-family: 'calibri', serif;
+  }
+
     
 h1 {
     margin: auto;
@@ -99,12 +102,14 @@ h4 {
     text-align: left;
     list-style-type: circle;
     color: black;
+    font-family: 'calibri', serif;
   }
 ul {
 padding-left:7px;
 margin-left:25px;
 margin-right:25px;
 /*line-height: 2em;*/
+
 }
 
 
@@ -112,7 +117,7 @@ a {
 color: #006200; 
 text-decoration: underline;
 /*text-decoration: none;*/
-font-family: sans-serif;
+
 /*font-weight: bold;*/
 margin-top: 2rem;
 

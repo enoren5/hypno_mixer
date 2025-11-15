@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView
-from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes, TorStar, WSJournal,AssortedPeriodicals
+from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes, TorStar, WSJournal,AssortedPeriodicals,AssortedLiterature,Binaurals
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
@@ -120,8 +120,10 @@ class ContentListView(LoginRequiredMixin,ListView):
             ).order_by('-last_change')
      
     
-        context["assorted_periodicals"] = AssortedPeriodicals.objects.order_by("-id") #.first()
-
+        context["assorted_literature"] = AssortedLiterature.objects.order_by("-id") 
+        context["assorted_periodicals"] = AssortedPeriodicals.objects.order_by("-id") 
+        context["binaurals"] = Binaurals.objects.order_by("-id") 
+        
         return context
     
 class PreambleDetailView(LoginRequiredMixin,DetailView):
