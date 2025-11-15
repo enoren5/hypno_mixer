@@ -5,6 +5,8 @@ from django.db import models
 class AuthToggle(models.Model):
     email = models.EmailField(max_length=50, default='')
     linkedin = models.CharField(max_length=50, default='')
+    github = models.CharField(max_length=50, default='')
+    name = models.CharField(max_length=50, default='')
 
     def __str__(self):
         return "Options"

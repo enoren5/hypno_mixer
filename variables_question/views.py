@@ -7,5 +7,7 @@ def portal(request):
     context = {
         "email": AuthToggle.objects.first(),
         "linkedin": AuthToggle.objects.first(),
+        "github": AuthToggle.objects.first(),
+        "name": AuthToggle.objects.first(),
     }
     return render(request, 'partials/_footer.html', context)
