@@ -1,7 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
-from .models import Preamble,Induction, ScriptSuggestion, Research, StockScript, NYTimes, TorStar, WSJournal
+from .models import Preamble,Induction, ScriptSuggestion, Research, StockScript, NYTimes, TorStar, WSJournal,AssortedPeriodicals
 
 admin.site.register(Preamble)
 admin.site.register(Induction)
@@ -11,3 +9,8 @@ admin.site.register(StockScript)
 admin.site.register(NYTimes)
 admin.site.register(TorStar)
 admin.site.register(WSJournal)
+# admin.site.register(AssortedPeriodicals)
+
+@admin.register(AssortedPeriodicals)
+class AssortedPeriodicalsAdmin(admin.ModelAdmin):
+    list_display = ("title", "address")

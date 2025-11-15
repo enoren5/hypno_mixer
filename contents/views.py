@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView
-from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes, TorStar, WSJournal
+from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes, TorStar, WSJournal,AssortedPeriodicals
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
@@ -118,8 +118,12 @@ class ContentListView(LoginRequiredMixin,ListView):
                     ).order_by('-action_time').values('action_time')[:1]
                 )
             ).order_by('-last_change')
-        return context
+     
+    
+        context["assorted_periodicals"] = AssortedPeriodicals.objects.order_by("-id") #.first()
 
+        return context
+    
 class PreambleDetailView(LoginRequiredMixin,DetailView):
     model = Preamble
      
@@ -377,3 +381,10 @@ class WSJournalDetailView(LoginRequiredMixin, DetailView):
         else:
             raise Http404('I borked this one, gotta fix it!')
     context_object_name = 'wsj'
+
+'''
+class AssortedPeriodicalsListView(ListView):
+    model = AssortedPeriodicals
+    template_name = "content_list.html"
+    context_object_name = "assorted_periodicals"
+'''

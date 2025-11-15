@@ -164,7 +164,14 @@
         {% endfor %}
         </div> <!-- end  box -->
     </ul>    
-
+    <ul>      
+        <h4> Assorted Periodicals </h4>
+        <div class="box">
+        {% for article in assorted_periodicals  %}
+            <li class="flex-item"> - <a href="{{article.address}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
+        {% endfor %}
+        </div> <!-- end  box -->
+    </ul>    
 
 </div> <!-- end flex container -->
 

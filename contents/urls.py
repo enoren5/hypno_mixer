@@ -1,10 +1,11 @@
 from django.urls import path, include
-from .views import ContentListView, InductionDetailView,ResearchDetailView, PreambleDetailView, ScriptSuggestionDetailView,StockScriptDetailView,NYTimesDetailView,TorStarDetailView,WSJournalDetailView # index
+from .views import ContentListView, InductionDetailView,ResearchDetailView, PreambleDetailView, ScriptSuggestionDetailView,StockScriptDetailView,NYTimesDetailView,TorStarDetailView,WSJournalDetailView # AssortedPeriodicalsListView # index
 
 app_name = 'contents'
 
 urlpatterns = [
     path('', ContentListView.as_view(),name='home'), 
+    #path('', AssortedPeriodicalsListView.as_view(),name='assorted_periodicals'), 
     path('preambles/<str:slug>', PreambleDetailView.as_view(),name='preamble_details'), 
     path('inductioning/<str:slug>', InductionDetailView.as_view(),name='induction_details'), 
     path('scripting/<str:slug>', ScriptSuggestionDetailView.as_view(),name='scriptsuggestion_detail'), 
