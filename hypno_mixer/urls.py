@@ -13,6 +13,8 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+admin.site.site_header = 'Hypno Mixer'
+admin.site.site_title = 'Hypno Mixer'
 
 """hypno_mixer URL Configuration
 
