@@ -132,8 +132,8 @@
     <ul>      
         <h4> NY Times </h4>
         <div class="box">
-        {% for point in nytimes  %}
-            <li class="flex-item"> - <a href="/researching/{{point.slug}}">{{point.title}}</a>  {% if point.essentia1 %} <span>Essential</span>{% endif %}</li>
+        {% for article in nytimes  %}
+            <li class="flex-item"> - <a href="/nytimesing/{{article.slug}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>    

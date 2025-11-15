@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView
-from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content
+from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
@@ -77,12 +77,20 @@ class ContentListView(LoginRequiredMixin,ListView):
                 )
             ).order_by('-last_change')
         
-        '''
-        try:
-            context['preambles'] = Preamble.objects.filter(is_published=True)
-        except Preamble.DoesNotExist:
-            raise Http404('Article does not exist!')
-        '''
+        script_type5 = ContentType.objects.get_for_model(NYTimes)
+        context['nytimes'] = NYTimes.objects.annotate(
+            last_change=Subquery(
+                LogEntry.objects.filter(
+                    content_type=script_type5,
+                    action_flag=CHANGE,
+                    object_id=Cast(
+                        OuterRef('id'), 
+                        CharField()
+                        )
+                    ).order_by('-action_time').values('action_time')[:1]
+                )
+            ).order_by('-last_change')
+        
         return context
 
 class PreambleDetailView(LoginRequiredMixin,DetailView):
@@ -252,7 +260,7 @@ class ResearchDetailView(LoginRequiredMixin, DetailView):
     
     
 class NYTimesDetailView(LoginRequiredMixin, DetailView):
-    model = Research    
+    model = NYTimes    
     
     def get_object(self, queryset=None):
         if queryset is None:
@@ -282,35 +290,3 @@ class NYTimesDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'nytimes'
 
 
-
-
-
-
-
-
-
-'''
-
-def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super(ContentDetailView, self).get_context_data(**kwargs)
-        # Add in a QuerySet of all the Baklawa
-        context['preambles'] = Preamble.objects.all()
-        #context['research'] = Research.objects.all()
-        context['scriptsuggestions'] = ScriptSuggestion.objects.all()
-        context['stockscripts'] = StockScript.objects.all()
-        return context'''
-        
-'''
-class CustomLoginView(LoginView):
-    form_class = LoginForm
-    template_name = 'registration/login.html'
-    fields = '__all__'
-    redirect_authenticated_user = True
-
-    #def get_success_url(self):
-    #    return reverse_lazy('/')
-
-def index(request):
-    return render(request,'contents/index.html')
-'''
