@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class=body>
+        
+    {% if torstar  %}
+        <h1 class="title">{{torstar.title}}</h1>
+        <h3><em> For The Toronto Star </em></h3>
+        <div class=author>Author: {{torstar.author}}</div>
+        <div class=detail>{{torstar.body|safe}}</div> <!-- end detail class -->
+    {% endif %}
+</div> <!-- end body -->
+{% endblock %}

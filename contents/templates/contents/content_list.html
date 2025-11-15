@@ -47,7 +47,11 @@
 
     <br><br>
     <hr class="style-one">
-    <br><br>
+    
+    <center>
+        <h1> = PRACTICAL RESOURCES = </h1>
+        <br>
+          <br>
     <div class="container flex-container wrap">
 
     <ul>    
@@ -103,11 +107,16 @@
         <li class="flex-item">Placeholder Three.wav</li>-->
         </div> <!-- end  box -->
     </ul>
-    <!-- </div>
-    <div class="container flex-container wrap"> -->
+    </div>
+    </center>
+
+    <center>
+        <h1> = RESEARCH = </h1>
+        <br>
+    <div class="container flex-container wrap"> 
     
     <ul>      
-        <h4> RESEARCH <br> (STUDY NOTES) </h4>
+        <h4> MY RESEARCH </h4>
         <div class="box">
         {% for point in research  %}
             <li class="flex-item"> - <a href="/researching/{{point.slug}}">{{point.title}}</a>  {% if point.essentia1 %} <span>Essential</span>{% endif %}</li>
@@ -138,7 +147,28 @@
         </div> <!-- end  box -->
     </ul>    
     
+     <ul>      
+        <h4> The Toronto Star </h4>
+        <div class="box">
+        {% for article in torstar  %}
+            <li class="flex-item"> - <a href="/torstaring/{{article.slug}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
+        {% endfor %}
+        </div> <!-- end  box -->
+    </ul>    
+
+     <ul>      
+        <h4> The Wall Street Journal </h4>
+        <div class="box">
+        {% for article in wsj  %}
+            <li class="flex-item"> - <a href="/wsj-ing/{{article.slug}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
+        {% endfor %}
+        </div> <!-- end  box -->
+    </ul>    
+
+
 </div> <!-- end flex container -->
+
+</center>
 {% include 'partials/_footer.html' %}
 {% endblock %}
 

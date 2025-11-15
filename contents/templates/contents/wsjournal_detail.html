@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class=body>
+        
+    {% if wsj  %}
+        <h1 class="title">{{wsj.title}}</h1>
+        <h3><em> For The Wall Street Journal </em></h3>
+        <div class=author>Author: {{wsj.author}}</div>
+        <div class=detail>{{wsj.body|safe}}</div> <!-- end detail class -->
+    {% endif %}
+</div> <!-- end body -->
+{% endblock %}

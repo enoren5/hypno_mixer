@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView
-from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes
+from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes, TorStar, WSJournal
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
@@ -91,6 +91,33 @@ class ContentListView(LoginRequiredMixin,ListView):
                 )
             ).order_by('-last_change')
         
+        script_type6 = ContentType.objects.get_for_model(TorStar)
+        context['torstar'] = TorStar.objects.annotate(
+            last_change=Subquery(
+                LogEntry.objects.filter(
+                    content_type=script_type6,
+                    action_flag=CHANGE,
+                    object_id=Cast(
+                        OuterRef('id'), 
+                        CharField()
+                        )
+                    ).order_by('-action_time').values('action_time')[:1]
+                )
+            ).order_by('-last_change')
+        
+        script_type7 = ContentType.objects.get_for_model(WSJournal)
+        context['wsj'] = WSJournal.objects.annotate(
+            last_change=Subquery(
+                LogEntry.objects.filter(
+                    content_type=script_type7,
+                    action_flag=CHANGE,
+                    object_id=Cast(
+                        OuterRef('id'), 
+                        CharField()
+                        )
+                    ).order_by('-action_time').values('action_time')[:1]
+                )
+            ).order_by('-last_change')
         return context
 
 class PreambleDetailView(LoginRequiredMixin,DetailView):
@@ -290,3 +317,63 @@ class NYTimesDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'nytimes'
 
 
+class TorStarDetailView(LoginRequiredMixin, DetailView):
+    model = TorStar
+    
+    def get_object(self, queryset=None):
+        if queryset is None:
+            queryset = self.get_queryset()
+        pk = self.kwargs.get(self.pk_url_kwarg)
+        slug = self.kwargs.get(self.slug_url_kwarg)
+        if slug is not None and (pk is None or self.query_pk_and_slug):
+            slug_field = self.get_slug_field()
+            queryset = queryset.filter(**{slug_field: slug})
+        if pk is None and slug is None:
+            raise AttributeError(
+            "Generic detail view %s must be called with either an object "
+            "pk or a slug in the URLconf." % self.__class__.__name__
+            )
+        try:
+            # Get the single item from the filtered queryset
+            obj = queryset.get()
+        except queryset.model.DoesNotExist:
+            raise Http404(
+                _("No %(verbose_name)s found matching the query")
+                % {"verbose_name": queryset.model._meta.verbose_name}
+            )
+        if obj.is_published==True:
+            return obj
+        else:
+            raise Http404('I borked this one, gotta fix it!')
+    context_object_name = 'torstar'
+
+
+class WSJournalDetailView(LoginRequiredMixin, DetailView):
+    model = WSJournal    
+    
+    def get_object(self, queryset=None):
+        if queryset is None:
+            queryset = self.get_queryset()
+        pk = self.kwargs.get(self.pk_url_kwarg)
+        slug = self.kwargs.get(self.slug_url_kwarg)
+        if slug is not None and (pk is None or self.query_pk_and_slug):
+            slug_field = self.get_slug_field()
+            queryset = queryset.filter(**{slug_field: slug})
+        if pk is None and slug is None:
+            raise AttributeError(
+            "Generic detail view %s must be called with either an object "
+            "pk or a slug in the URLconf." % self.__class__.__name__
+            )
+        try:
+            # Get the single item from the filtered queryset
+            obj = queryset.get()
+        except queryset.model.DoesNotExist:
+            raise Http404(
+                _("No %(verbose_name)s found matching the query")
+                % {"verbose_name": queryset.model._meta.verbose_name}
+            )
+        if obj.is_published==True:
+            return obj
+        else:
+            raise Http404('I borked this one, gotta fix it!')
+    context_object_name = 'wsj'

@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import ContentListView, InductionDetailView,ResearchDetailView, PreambleDetailView, ScriptSuggestionDetailView,StockScriptDetailView,NYTimesDetailView # index
+from .views import ContentListView, InductionDetailView,ResearchDetailView, PreambleDetailView, ScriptSuggestionDetailView,StockScriptDetailView,NYTimesDetailView,TorStarDetailView,WSJournalDetailView # index
 
 app_name = 'contents'
 
@@ -11,6 +11,8 @@ urlpatterns = [
     path('stock_scripting/<str:slug>', StockScriptDetailView.as_view(),name='stockscript_detail'), 
     path('researching/<str:slug>', ResearchDetailView.as_view(),name='research_detail'), 
     path('nytimesing/<str:slug>', NYTimesDetailView.as_view(),name='nytimes_detail'), 
+    path('torstaring/<str:slug>', TorStarDetailView.as_view(),name='torstar_detail'), 
+    path('wsj-ing/<str:slug>', WSJournalDetailView.as_view(),name='wsj_detail'), 
 ]
 
     
