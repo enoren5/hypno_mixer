@@ -91,3 +91,19 @@ class StockScript(models.Model):
             return f'{self.title} (ESSENTIAL)'
         if self.essentia1 == False:
             return f'{self.title}'
+
+class NYTimes(models.Model):
+    title = models.CharField(max_length=300,blank=True)
+    # essential = models.BooleanField(default=False,blank=True)
+    # The following attributes ends with '1' not 'l'
+    is_published = models.BooleanField(default=True)
+    essentia1 = models.BooleanField(default=False,blank=True)
+    author = models.CharField(max_length=300,blank=True)
+    slug = models.SlugField(unique=True,blank=True)
+    body = models.TextField(max_length=300000,blank=True)
+    
+    def __str__(self):
+        if self.essentia1 == True:
+            return f'{self.title} (ESSENTIAL)'
+        if self.essentia1 == False:
+            return f'{self.title}'

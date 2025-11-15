@@ -60,7 +60,7 @@ h4 {
 
 .flex-container {
     padding-left:75px;
-    padding-right:75px;
+    /*padding-right:75px;*/
     margin:  0 auto;
     list-style: none;
     border: 0px solid silver;

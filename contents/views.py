@@ -248,7 +248,47 @@ class ResearchDetailView(LoginRequiredMixin, DetailView):
         else:
             raise Http404('I borked this one, gotta fix it!')
     context_object_name = 'research'
-        
+    
+    
+    
+class NYTimesDetailView(LoginRequiredMixin, DetailView):
+    model = Research    
+    
+    def get_object(self, queryset=None):
+        if queryset is None:
+            queryset = self.get_queryset()
+        pk = self.kwargs.get(self.pk_url_kwarg)
+        slug = self.kwargs.get(self.slug_url_kwarg)
+        if slug is not None and (pk is None or self.query_pk_and_slug):
+            slug_field = self.get_slug_field()
+            queryset = queryset.filter(**{slug_field: slug})
+        if pk is None and slug is None:
+            raise AttributeError(
+            "Generic detail view %s must be called with either an object "
+            "pk or a slug in the URLconf." % self.__class__.__name__
+            )
+        try:
+            # Get the single item from the filtered queryset
+            obj = queryset.get()
+        except queryset.model.DoesNotExist:
+            raise Http404(
+                _("No %(verbose_name)s found matching the query")
+                % {"verbose_name": queryset.model._meta.verbose_name}
+            )
+        if obj.is_published==True:
+            return obj
+        else:
+            raise Http404('I borked this one, gotta fix it!')
+    context_object_name = 'nytimes'
+
+
+
+
+
+
+
+
+
 '''
 
 def get_context_data(self, **kwargs):
