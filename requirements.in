@@ -9,3 +9,4 @@ python-decouple
 sqlparse
 whitenoise
 django-ckeditor
+gateway-defender

@@ -8,9 +8,10 @@ urlpatterns = [
     # path('', CustomLoginView.as_view(),name='home'), 
     path('accounts/',include('django.contrib.auth.urls')),
     path('', include('contents.urls')),
-    # path('classroom/', include('classroom.urls')),
     path(settings.ADMIN_PATH, admin.site.urls),
     # path('admin/', admin.site.urls),
+    path("", include("gateway_defender.urls")),
+    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = 'Hypno Mixer'

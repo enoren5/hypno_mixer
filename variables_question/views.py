@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from variables_question.models import AuthToggle
-# Create your views here.
+from gateway_defender.custom_decorator import protected_redirect
+from gateway_defender.models import AuthToggle
 
 
+@protected_redirect
 def portal(request):
     context = {
         "email": AuthToggle.objects.first(),
