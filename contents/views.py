@@ -11,7 +11,10 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import Cast
 from django.db.models import CharField
 from django.http import Http404
+from gateway_defender.custom_decorator import protected_redirect
+from gateway_defender.models import AuthToggle
 
+@protected_redirect
 class ContentListView(LoginRequiredMixin,ListView):
     model = Content
     # template_name = 'home.html'   
@@ -125,7 +128,8 @@ class ContentListView(LoginRequiredMixin,ListView):
         context["binaurals"] = Binaurals.objects.order_by("-id") 
         
         return context
-    
+
+@protected_redirect    
 class PreambleDetailView(LoginRequiredMixin,DetailView):
     model = Preamble
      
@@ -168,7 +172,7 @@ class PreambleDetailView(LoginRequiredMixin,DetailView):
         return context
 '''
     
-    
+@protected_redirect    
 class InductionDetailView(LoginRequiredMixin, DetailView):
     model = Induction
     def get_object(self, queryset=None):
@@ -198,7 +202,8 @@ class InductionDetailView(LoginRequiredMixin, DetailView):
             raise Http404('I borked this one, gotta fix it!')
         
     context_object_name = 'inductions'
-    
+
+@protected_redirect    
 class ScriptSuggestionDetailView(LoginRequiredMixin,DetailView):
     model = ScriptSuggestion
     
@@ -230,6 +235,8 @@ class ScriptSuggestionDetailView(LoginRequiredMixin,DetailView):
              
     context_object_name = 'scriptsuggestions'
 
+
+@protected_redirect
 class StockScriptDetailView(LoginRequiredMixin,DetailView):
     model = StockScript
     
@@ -260,6 +267,7 @@ class StockScriptDetailView(LoginRequiredMixin,DetailView):
             raise Http404('I borked this one, gotta fix it!')
     context_object_name = 'stockscripts'
 
+@protected_redirect
 class ResearchDetailView(LoginRequiredMixin, DetailView):
     model = Research    
     
@@ -291,7 +299,7 @@ class ResearchDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'research'
     
     
-    
+@protected_redirect    
 class NYTimesDetailView(LoginRequiredMixin, DetailView):
     model = NYTimes    
     
@@ -322,7 +330,7 @@ class NYTimesDetailView(LoginRequiredMixin, DetailView):
             raise Http404('I borked this one, gotta fix it!')
     context_object_name = 'nytimes'
 
-
+@protected_redirect
 class TorStarDetailView(LoginRequiredMixin, DetailView):
     model = TorStar
     
@@ -353,7 +361,7 @@ class TorStarDetailView(LoginRequiredMixin, DetailView):
             raise Http404('I borked this one, gotta fix it!')
     context_object_name = 'torstar'
 
-
+@protected_redirect
 class WSJournalDetailView(LoginRequiredMixin, DetailView):
     model = WSJournal    
     
