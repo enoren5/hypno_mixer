@@ -4,24 +4,19 @@
 #
 #    pip-compile requirements.in
 #
-asgiref==3.10.0
+asgiref==3.11.0
     # via
     #   -r requirements.in
     #   django
 dj-database-url==3.0.1
-    # via
-    #   -r requirements.in
-    #   django-heroku
-django==5.2.7
+    # via -r requirements.in
+django==6.0
     # via
     #   -r requirements.in
     #   dj-database-url
     #   django-ckeditor
-    #   django-heroku
     #   django-js-asset
 django-ckeditor==6.7.3
-    # via -r requirements.in
-django-heroku==0.3.1
     # via -r requirements.in
 django-js-asset==3.1.2
     # via django-ckeditor
@@ -32,16 +27,12 @@ packaging==25.0
 pillow==12.0.0
     # via -r requirements.in
 psycopg2==2.9.11
-    # via
-    #   -r requirements.in
-    #   django-heroku
+    # via -r requirements.in
 python-decouple==3.8
     # via -r requirements.in
-sqlparse==0.5.3
+sqlparse==0.5.4
     # via
     #   -r requirements.in
     #   django
 whitenoise==6.11.0
-    # via
-    #   -r requirements.in
-    #   django-heroku
+    # via -r requirements.in

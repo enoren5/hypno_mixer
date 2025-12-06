@@ -1,7 +1,7 @@
 asgiref
 dj-database-url
-Django
-django-heroku
+Django>=6
+# django-heroku
 gunicorn
 Pillow
 psycopg2
