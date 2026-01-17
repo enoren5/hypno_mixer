@@ -14,14 +14,8 @@ django==5.2.10
     # via
     #   -r requirements.in
     #   dj-database-url
-    #   django-ckeditor
-    #   django-js-asset
     #   django-widget-tweaks
     #   gateway-defender
-django-ckeditor==6.7.3
-    # via -r requirements.in
-django-js-asset==3.1.2
-    # via django-ckeditor
 django-widget-tweaks==1.5.1
     # via -r requirements.in
 gateway-defender==0.1.3

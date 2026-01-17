@@ -1,5 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+#from ckeditor.fields import RichTextField
 
 class GatewayProtect(models.Model):
     is_protected = models.BooleanField(default=True)
@@ -50,7 +50,7 @@ class ScriptSuggestion(models.Model):
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
-    geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
+    # geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     # changed = LogEntry.objects.filter(action_flag=CHANGE,blank=False, null=False)
     
     def __str__(self):
@@ -67,7 +67,7 @@ class Research(models.Model):
     essentia1 = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
-    geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
+    # geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     body = models.TextField(max_length=300000,blank=True)
     
     def __str__(self):
