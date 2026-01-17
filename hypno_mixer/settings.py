@@ -1,5 +1,5 @@
 import os
-import django_heroku
+# import django_heroku
 from decouple import config
 import dj_database_url
 
@@ -178,7 +178,7 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage" 
 '''
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 # Below was suggested here : https://stackoverflow.com/a/52314952/6095646 
 DEBUG_PROPAGATE_EXCEPTIONS = True
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
