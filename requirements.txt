@@ -8,32 +8,35 @@ asgiref==3.11.0
     # via
     #   -r requirements.in
     #   django
-dj-database-url==3.0.1
+dj-database-url==3.1.0
     # via -r requirements.in
-django==6.0
+django==6.0.1
     # via
     #   -r requirements.in
     #   dj-database-url
     #   django-ckeditor
     #   django-js-asset
+    #   django-widget-tweaks
     #   gateway-defender
 django-ckeditor==6.7.3
     # via -r requirements.in
 django-js-asset==3.1.2
     # via django-ckeditor
+django-widget-tweaks==1.5.1
+    # via -r requirements.in
 gateway-defender==0.1.3
     # via -r requirements.in
 gunicorn==23.0.0
     # via -r requirements.in
 packaging==25.0
     # via gunicorn
-pillow==12.0.0
+pillow==12.1.0
     # via -r requirements.in
 psycopg2==2.9.11
     # via -r requirements.in
 python-decouple==3.8
     # via -r requirements.in
-sqlparse==0.5.4
+sqlparse==0.5.5
     # via
     #   -r requirements.in
     #   django

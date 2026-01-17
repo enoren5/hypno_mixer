@@ -10,3 +10,4 @@ sqlparse
 whitenoise
 django-ckeditor
 gateway-defender
+django-widget-tweaks
