@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'variables_question.apps.AuthToggleConfig',
     "gateway_defender",
+    "widget_tweaks",
     
 ]
 

@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # path('', CustomLoginView.as_view(),name='home'), 
-    path('accounts/',include('django.contrib.auth.urls')),
-    path('', include('contents.urls')),
+    #path('accounts/',include('django.contrib.auth.urls')),
+    path('portal/', include('contents.urls')),
     path(settings.ADMIN_PATH, admin.site.urls),
     # path('admin/', admin.site.urls),
     path("", include("gateway_defender.urls")),
