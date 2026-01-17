@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('contents', '0010_merge_0008_gatewayprotect_0009_research_geeks_field'),
+        ('contents', '0008_gatewayprotect'),
     ]
 
     operations = [
