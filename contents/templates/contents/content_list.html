@@ -58,7 +58,7 @@
         <h4> Inductions </h4>
         <div class="box">
         {% for induction in inductions  %}
-            <li class="flex-item"> - <a href="/inductioning/{{induction.slug}}">{{induction.title}}</a>  {% if induction.essentia1 %}  <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/portal/inductioning/{{induction.slug}}">{{induction.title}}</a>  {% if induction.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>
@@ -68,7 +68,7 @@
         <h4> Customized <br> Scripts </h4>
         <div class="box">
         {% for script in scriptsuggestions %}
-            <li class="flex-item"> - <a href="{% url 'contents:scriptsuggestion_detail' slug=obj.slug %}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="{% url 'contents:scriptsuggestion_detail' slug=script.slug %}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
          </div> <!-- end  box -->
     </ul>
@@ -81,17 +81,6 @@
         {% endfor %}
         </div> <!-- end  box -->
     </ul>
-
-    <!-- <ul>
-        <h4> JOURNALING <br>[ defunct ] </h4>
-        <div class="box">
-        {% comment %}
-        {% for point in journals  %}
-            <li class="flex-item"> <a href="/researching/{{point.slug}}">{{point.title}}</a></li>
-        {% endfor %}{% endcomment %}
-        </div> <!-- end  box
-    </ul>-->
- 
 
     <ul>    
         <h4> Binaural <br> Audio Files </h4>
@@ -114,7 +103,7 @@
         <br>
         <div class="box">
         {% for point in research  %}
-            <li class="flex-item"> - <a href="/researching/{{point.slug}}">{{point.title}}</a>  {% if point.essentia1 %} <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/portal/researching/{{point.slug}}">{{point.title}}</a>  {% if point.essentia1 %} <span>Essential</span>{% endif %}</li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>
@@ -133,7 +122,7 @@
         <h4> The New York Times </h4>
         <div class="box">
         {% for article in nytimes  %}
-            <li class="flex-item"> - <a href="/nytimesing/{{article.slug}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/portal/nytimesing/{{article.slug}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>    
@@ -142,7 +131,7 @@
         <h4> The Toronto Star </h4>
         <div class="box">
         {% for article in torstar  %}
-            <li class="flex-item"> - <a href="/torstaring/{{article.slug}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/portal/torstaring/{{article.slug}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>    
@@ -151,7 +140,7 @@
         <h4> The Wall Street Journal </h4>
         <div class="box">
         {% for article in wsj  %}
-            <li class="flex-item"> - <a href="/wsj-ing/{{article.slug}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/portal/wsj-ing/{{article.slug}}">{{article.title}}</a>  {% if article.essentia1 %} <span>Essential</span>{% endif %}</li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>    
