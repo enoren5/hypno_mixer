@@ -46,7 +46,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     
     'contents.apps.ContentsConfig',
-    # 'ckeditor',
+    'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -102,7 +102,6 @@ DATABASES = {
         ssl_require=True,
     )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -188,7 +187,7 @@ DATABASES['default']['CONN_MAX_AGE'] = 0
 
 
 ADMIN_PATH = os.environ.get('ADMIN_PATH')+'/' if 'ADMIN_PATH' in os.environ else 'admin/'
-#CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 '''
 CKEDITOR_CONFIGS = {
@@ -198,12 +197,10 @@ CKEDITOR_CONFIGS = {
         'width': 300,
     },
 }
-
+'''
 
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
     },
 }
-
-'''
