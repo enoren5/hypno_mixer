@@ -108,14 +108,24 @@
         </div> <!-- end  box -->
     </ul>
     
+    <ul>      
+        <h4> Assorted Periodicals </h4>
+        <div class="box">
+        
+        {% for article in assorted_periodicals  %}
+            <li class="flex-item"> - <strong>{{article.media_type}}</strong>: {{article.author_last_name}} ({{article.publication_year}}) <a href="{{article.address}}">{{article.title}}</a> </li>
+        {% endfor %}
+        </div> <!-- end  box -->
+    </ul>    
+
     <ul>    
-    <h4> Select <br> Literature </h4>
-    <div class="box">
+        <h4> Select <br> Literature </h4>
+        <div class="box">
             {% for literature_instance in assorted_literature  %}
                 <li class="flex-item"> - <strong>{{literature_instance.media_type}}</strong>: {{literature_instance.author_last_name}} ({{literature_instance.publication_year}}) <a href="{{literature_instance.address}}">{{literature_instance.title}}</a> </li>
             {% endfor %}
         
-    </div> <!-- end  box -->
+        </div> <!-- end  box -->
     </ul>
 
     <ul>      
@@ -144,15 +154,7 @@
         {% endfor %}
         </div> <!-- end  box -->
     </ul>    
-    <ul>      
-        <h4> Assorted Periodicals </h4>
-        <div class="box">
-        
-        {% for article in assorted_periodicals  %}
-            <li class="flex-item"> - <strong>{{article.media_type}}</strong>: {{article.author_last_name}} ({{article.publication_year}}) <a href="{{article.address}}">{{article.title}}</a> </li>
-        {% endfor %}
-        </div> <!-- end  box -->
-    </ul>    
+
 
 </div> <!-- end flex container -->
 
