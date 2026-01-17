@@ -68,7 +68,7 @@
         <h4> Customized <br> Scripts </h4>
         <div class="box">
         {% for script in scriptsuggestions %}
-            <li class="flex-item"> - <a href="/scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="{% url 'contents:scriptsuggestion_detail' slug=obj.slug %}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
          </div> <!-- end  box -->
     </ul>
@@ -77,7 +77,7 @@
         <h4> Base \ Source <br> Scripts </h4>
         <div class="box">
         {% for script in stockscripts %}
-            <li class="flex-item"> - <a href="/stock_scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
+            <li class="flex-item"> - <a href="/portal/stock_scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essentia1 %}  <span>Essential</span>{% endif %}</li>
         {% endfor %}
         </div> <!-- end  box -->
     </ul>
