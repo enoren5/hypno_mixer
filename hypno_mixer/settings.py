@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'variables_question.apps.AuthToggleConfig',
     "gateway_defender",
     "widget_tweaks",
+    "django.contrib.sites",
     
 ]
 
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "django.contrib.sites.middleware.CurrentSiteMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -205,3 +207,5 @@ CKEDITOR_CONFIGS = {
     },
 }
 '''
+
+SITE_ID = 2
