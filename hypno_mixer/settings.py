@@ -208,4 +208,3 @@ CKEDITOR_CONFIGS = {
 }
 '''
 
-SITE_ID = 2
