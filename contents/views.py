@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView
 from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes, TorStar, WSJournal,AssortedPeriodicals,AssortedLiterature,Binaurals
-from django.contrib.auth.mixins import LoginRequiredMixin
+# from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.models import CHANGE, LogEntry
@@ -16,7 +16,7 @@ from gateway_defender.custom_decorator import protected_redirect
 from gateway_defender.models import AuthToggle
 
 @method_decorator(protected_redirect,name='dispatch')
-class ContentListView(LoginRequiredMixin,ListView):
+class ContentListView(ListView):
     model = Content
     # template_name = 'home.html'   
         
@@ -131,7 +131,7 @@ class ContentListView(LoginRequiredMixin,ListView):
         return context
 
 @method_decorator(protected_redirect,name='dispatch')
-class PreambleDetailView(LoginRequiredMixin,DetailView):
+class PreambleDetailView(DetailView):
     model = Preamble
      
     def get_object(self, queryset=None):
@@ -174,7 +174,7 @@ class PreambleDetailView(LoginRequiredMixin,DetailView):
 '''
     
 @method_decorator(protected_redirect,name='dispatch')
-class InductionDetailView(LoginRequiredMixin, DetailView):
+class InductionDetailView( DetailView):
     model = Induction
     def get_object(self, queryset=None):
         if queryset is None:
@@ -205,7 +205,7 @@ class InductionDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'inductions'
 
 @method_decorator(protected_redirect,name='dispatch')
-class ScriptSuggestionDetailView(LoginRequiredMixin,DetailView):
+class ScriptSuggestionDetailView(DetailView):
     model = ScriptSuggestion
     
     def get_object(self, queryset=None):
@@ -238,7 +238,7 @@ class ScriptSuggestionDetailView(LoginRequiredMixin,DetailView):
 
 
 @method_decorator(protected_redirect,name='dispatch')
-class StockScriptDetailView(LoginRequiredMixin,DetailView):
+class StockScriptDetailView(DetailView):
     model = StockScript
     
     def get_object(self, queryset=None):
@@ -269,7 +269,7 @@ class StockScriptDetailView(LoginRequiredMixin,DetailView):
     context_object_name = 'stockscripts'
 
 @method_decorator(protected_redirect,name='dispatch')
-class ResearchDetailView(LoginRequiredMixin, DetailView):
+class ResearchDetailView( DetailView):
     model = Research    
     
     def get_object(self, queryset=None):
@@ -301,7 +301,7 @@ class ResearchDetailView(LoginRequiredMixin, DetailView):
     
     
 @method_decorator(protected_redirect,name='dispatch')
-class NYTimesDetailView(LoginRequiredMixin, DetailView):
+class NYTimesDetailView( DetailView):
     model = NYTimes    
     
     def get_object(self, queryset=None):
@@ -332,7 +332,7 @@ class NYTimesDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'nytimes'
 
 @method_decorator(protected_redirect,name='dispatch')
-class TorStarDetailView(LoginRequiredMixin, DetailView):
+class TorStarDetailView( DetailView):
     model = TorStar
     
     def get_object(self, queryset=None):
@@ -363,7 +363,7 @@ class TorStarDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'torstar'
 
 @method_decorator(protected_redirect,name='dispatch')
-class WSJournalDetailView(LoginRequiredMixin, DetailView):
+class WSJournalDetailView( DetailView):
     model = WSJournal    
     
     def get_object(self, queryset=None):
