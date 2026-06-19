@@ -20,7 +20,10 @@ class Preamble(models.Model):
     #body = models.RichTextField(config_name='awesome_ckeditor')
    
     # posting_date = models.DateField(auto_now=False, auto_now_add=False, **options), https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.DateField
-
+    class Meta:
+        verbose_name        = "Preamble"
+        verbose_name_plural = "Preambles"
+    
     def __str__(self):
         return f'{self.title}'
     
@@ -33,7 +36,11 @@ class Induction(models.Model):
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
-    
+
+    class Meta:
+        verbose_name        = "Induction"
+        verbose_name_plural = "Inductions"
+
     def __str__(self):
         if self.essentia1 == True:
             return f'{self.title} (ESSENTIAL)'
@@ -53,6 +60,10 @@ class ScriptSuggestion(models.Model):
     # geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     # changed = LogEntry.objects.filter(action_flag=CHANGE,blank=False, null=False)
     
+    class Meta:
+        verbose_name        = "Scripting (Custom)"
+        verbose_name_plural = "Scripting (Custom)"
+   
     def __str__(self):
         if self.essentia1 == True:
             return f'{self.title} (ESSENTIAL)'
@@ -70,6 +81,10 @@ class Research(models.Model):
     # geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     body = models.TextField(max_length=300000,blank=True)
     
+    class Meta:
+        verbose_name        = "Research"
+        verbose_name_plural = "Research"
+
     def __str__(self):
         if self.essentia1 == True:
             return f'{self.title} (ESSENTIAL)'
@@ -85,7 +100,11 @@ class StockScript(models.Model):
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
-    
+
+    class Meta:
+        verbose_name        = "Scripting (Stock)"
+        verbose_name_plural = "Scripting (Stock)"
+
     def __str__(self):
         if self.essentia1 == True:
             return f'{self.title} (ESSENTIAL)'
@@ -102,6 +121,10 @@ class NYTimes(models.Model):
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
     
+    class Meta:
+        verbose_name        = "NY Times"
+        verbose_name_plural = "NY Times"    
+    
     def __str__(self):
         if self.essentia1 == True:
             return f'{self.title} (ESSENTIAL)'
@@ -117,7 +140,11 @@ class TorStar(models.Model):
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
-    
+
+    class Meta:
+        verbose_name        = "Toronto Star"
+        verbose_name_plural = "Toronto Star"
+
     def __str__(self):
         if self.essentia1 == True:
             return f'{self.title} (ESSENTIAL)'
@@ -134,6 +161,10 @@ class WSJournal(models.Model):
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
     
+    class Meta:
+        verbose_name        = "WSJ"
+        verbose_name_plural = "WSJ"
+
     def __str__(self):
         if self.essentia1 == True:
             return f'{self.title} (ESSENTIAL)'
@@ -147,6 +178,10 @@ class AssortedPeriodicals(models.Model):
     address = models.CharField(max_length=300,blank=True)    
     title = models.CharField(max_length=300,blank=True) 
     
+    class Meta:
+        verbose_name        = "Assorted Periodicals"
+        verbose_name_plural = "Assorted Periodicals"
+    
     def __str__(self):
         return f'{self.author_last_name} {self.title}'
 
@@ -158,7 +193,11 @@ class AssortedLiterature(models.Model):
     publication_year = models.CharField(max_length=300,blank=True)
     address = models.CharField(max_length=300,blank=True)    
     title = models.CharField(max_length=300,blank=True)    
-    
+
+    class Meta:
+        verbose_name        = "Assorted Literature"
+        verbose_name_plural = "Assorted Literature"
+
     def __str__(self):
         return f'{self.author_last_name} {self.title}'
 
@@ -167,6 +206,10 @@ class Binaurals(models.Model):
     publication_year = models.CharField(max_length=300,blank=True)
     address = models.CharField(max_length=300,blank=True)    
     title = models.CharField(max_length=300,blank=True)    
+    
+    class Meta:
+        verbose_name        = "Binaurals"
+        verbose_name_plural = "Binaurals"
     
     def __str__(self):
         return f'{self.author_last_name} {self.title}'
