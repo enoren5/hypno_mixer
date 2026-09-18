@@ -1,0 +1,21 @@
+[project]
+name = "hypno-mixer"
+version = "0.1.0"
+description = "Using self-hypnosis for self-discipline"
+authors = [
+    { name = "Pete Naveen Pearson", email = "drone4four@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "asgiref==3.11.1",
+    "dj-database-url==3.1.2",
+    "django>=6",
+    "django-widget-tweaks==1.5.1",
+    "gateway-defender==0.1.4",
+    "gunicorn==25.1.0",
+    "pillow==12.1.1",
+    "psycopg2==2.9.11",
+    "python-decouple==3.8",
+    "sqlparse==0.5.5",
+    "whitenoise==6.12.0",
+]
