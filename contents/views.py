@@ -20,13 +20,19 @@ class ContentListView(ListView):
     model = Content
     # template_name = 'home.html'   
         
+    def visible(self, model):
+        qs = model.objects.all()
+        if self.request.user.is_authenticated:
+            qs = qs.exclude(excluded_users=self.request.user)
+        return qs
+
     def get_context_data(self, **kwargs):
     
         # Call the base implementation first to get a context
         context = super(ContentListView, self).get_context_data(**kwargs)
         
         script_type1 = ContentType.objects.get_for_model(ScriptSuggestion)
-        context['scriptsuggestions'] = ScriptSuggestion.objects.annotate(
+        context['scriptsuggestions'] = self.visible(ScriptSuggestion).annotate(
             last_change=Subquery(
                 LogEntry.objects.filter(
                     content_type=script_type1,
@@ -40,7 +46,7 @@ class ContentListView(ListView):
             ).order_by('-last_change')
         
         script_type2 = ContentType.objects.get_for_model(Research)
-        context['research'] = Research.objects.annotate(
+        context['research'] = self.visible(Research).annotate(
             last_change=Subquery(
                 LogEntry.objects.filter(
                     content_type=script_type2,
@@ -54,7 +60,7 @@ class ContentListView(ListView):
             ).order_by('-last_change')
         
         script_type3 = ContentType.objects.get_for_model(Induction)
-        context['inductions'] = Induction.objects.annotate(
+        context['inductions'] = self.visible(Induction).annotate(
             last_change=Subquery(
                 LogEntry.objects.filter(
                     content_type=script_type3,
@@ -68,7 +74,7 @@ class ContentListView(ListView):
             ).order_by('-last_change')
         
         script_type4 = ContentType.objects.get_for_model(StockScript)
-        context['stockscripts'] = StockScript.objects.annotate(
+        context['stockscripts'] = self.visible(StockScript).annotate(
             last_change=Subquery(
                 LogEntry.objects.filter(
                     content_type=script_type4,
@@ -82,7 +88,7 @@ class ContentListView(ListView):
             ).order_by('-last_change')
         
         script_type5 = ContentType.objects.get_for_model(NYTimes)
-        context['nytimes'] = NYTimes.objects.annotate(
+        context['nytimes'] = self.visible(NYTimes).annotate(
             last_change=Subquery(
                 LogEntry.objects.filter(
                     content_type=script_type5,
@@ -96,7 +102,7 @@ class ContentListView(ListView):
             ).order_by('-last_change')
         
         script_type6 = ContentType.objects.get_for_model(TorStar)
-        context['torstar'] = TorStar.objects.annotate(
+        context['torstar'] = self.visible(TorStar).annotate(
             last_change=Subquery(
                 LogEntry.objects.filter(
                     content_type=script_type6,
@@ -110,7 +116,7 @@ class ContentListView(ListView):
             ).order_by('-last_change')
         
         script_type7 = ContentType.objects.get_for_model(WSJournal)
-        context['wsj'] = WSJournal.objects.annotate(
+        context['wsj'] = self.visible(WSJournal).annotate(
             last_change=Subquery(
                 LogEntry.objects.filter(
                     content_type=script_type7,
@@ -155,7 +161,7 @@ class PreambleDetailView(DetailView):
                 _("No %(verbose_name)s found matching the query")
                 % {"verbose_name": queryset.model._meta.verbose_name}
             )
-        if obj.is_published==True:
+        if obj.is_published==True and not obj.excluded_users.filter(pk=self.request.user.pk).exists():
             return obj
         else:
             raise Http404('I borked this one, gotta fix it!')
@@ -197,7 +203,7 @@ class InductionDetailView( DetailView):
                 _("No %(verbose_name)s found matching the query")
                 % {"verbose_name": queryset.model._meta.verbose_name}
             )
-        if obj.is_published==True:
+        if obj.is_published==True and not obj.excluded_users.filter(pk=self.request.user.pk).exists():
             return obj
         else:
             raise Http404('I borked this one, gotta fix it!')
@@ -229,7 +235,7 @@ class ScriptSuggestionDetailView(DetailView):
                 _("No %(verbose_name)s found matching the query")
                 % {"verbose_name": queryset.model._meta.verbose_name}
             )
-        if obj.is_published==True:
+        if obj.is_published==True and not obj.excluded_users.filter(pk=self.request.user.pk).exists():
             return obj
         else:
             raise Http404('I borked this one, gotta fix it!')
@@ -262,7 +268,7 @@ class StockScriptDetailView(DetailView):
                 _("No %(verbose_name)s found matching the query")
                 % {"verbose_name": queryset.model._meta.verbose_name}
             )
-        if obj.is_published==True:
+        if obj.is_published==True and not obj.excluded_users.filter(pk=self.request.user.pk).exists():
             return obj
         else:
             raise Http404('I borked this one, gotta fix it!')
@@ -293,7 +299,7 @@ class ResearchDetailView( DetailView):
                 _("No %(verbose_name)s found matching the query")
                 % {"verbose_name": queryset.model._meta.verbose_name}
             )
-        if obj.is_published==True:
+        if obj.is_published==True and not obj.excluded_users.filter(pk=self.request.user.pk).exists():
             return obj
         else:
             raise Http404('I borked this one, gotta fix it!')
@@ -325,7 +331,7 @@ class NYTimesDetailView( DetailView):
                 _("No %(verbose_name)s found matching the query")
                 % {"verbose_name": queryset.model._meta.verbose_name}
             )
-        if obj.is_published==True:
+        if obj.is_published==True and not obj.excluded_users.filter(pk=self.request.user.pk).exists():
             return obj
         else:
             raise Http404('I borked this one, gotta fix it!')
@@ -356,7 +362,7 @@ class TorStarDetailView( DetailView):
                 _("No %(verbose_name)s found matching the query")
                 % {"verbose_name": queryset.model._meta.verbose_name}
             )
-        if obj.is_published==True:
+        if obj.is_published==True and not obj.excluded_users.filter(pk=self.request.user.pk).exists():
             return obj
         else:
             raise Http404('I borked this one, gotta fix it!')
@@ -387,7 +393,7 @@ class WSJournalDetailView( DetailView):
                 _("No %(verbose_name)s found matching the query")
                 % {"verbose_name": queryset.model._meta.verbose_name}
             )
-        if obj.is_published==True:
+        if obj.is_published==True and not obj.excluded_users.filter(pk=self.request.user.pk).exists():
             return obj
         else:
             raise Http404('I borked this one, gotta fix it!')

@@ -1,5 +1,13 @@
+from django.conf import settings
 from django.db import models
 #from ckeditor.fields import RichTextField
+
+class UserExcludable(models.Model):
+    # Users listed here can neither see nor open the article
+    excluded_users = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='+')
+
+    class Meta:
+        abstract = True
 
 class GatewayProtect(models.Model):
     is_protected = models.BooleanField(default=True)
@@ -8,7 +16,7 @@ class Content(models.Model):
     pass
 
 # Create your models here.
-class Preamble(models.Model):
+class Preamble(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
@@ -27,7 +35,7 @@ class Preamble(models.Model):
     def __str__(self):
         return f'{self.title}'
     
-class Induction(models.Model):
+class Induction(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
     #_essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
@@ -47,7 +55,7 @@ class Induction(models.Model):
         if self.essentia1 == False:
             return f'{self.title}'
 
-class ScriptSuggestion(models.Model):
+class ScriptSuggestion(UserExcludable):
     # id = models.IntegerField(blank=False, null=False)
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
@@ -70,7 +78,7 @@ class ScriptSuggestion(models.Model):
         if self.essentia1 == False:
             return f'{self.title}'
 
-class Research(models.Model):
+class Research(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
@@ -91,7 +99,7 @@ class Research(models.Model):
         if self.essentia1 == False:
             return f'{self.title}'
 
-class StockScript(models.Model):
+class StockScript(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
@@ -111,7 +119,7 @@ class StockScript(models.Model):
         if self.essentia1 == False:
             return f'{self.title}'
 
-class NYTimes(models.Model):
+class NYTimes(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
@@ -131,7 +139,7 @@ class NYTimes(models.Model):
         if self.essentia1 == False:
             return f'{self.title}'
 
-class TorStar(models.Model):
+class TorStar(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
@@ -151,7 +159,7 @@ class TorStar(models.Model):
         if self.essentia1 == False:
             return f'{self.title}'
 
-class WSJournal(models.Model):
+class WSJournal(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
     # essential = models.BooleanField(default=False,blank=True)
     # The following attributes ends with '1' not 'l'
