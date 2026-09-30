@@ -18,9 +18,7 @@ class Content(models.Model):
 # Create your models here.
 class Preamble(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
-    # essential = models.BooleanField(default=False,blank=True)
-    # The following attributes ends with '1' not 'l'
-    # essentia1 = models.BooleanField(default=False,blank=True)     
+    # essential = models.BooleanField(default=False,blank=True)     
     is_published = models.BooleanField(default=True)
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
@@ -37,10 +35,8 @@ class Preamble(UserExcludable):
     
 class Induction(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
-    #_essential = models.BooleanField(default=False,blank=True)
-    # The following attributes ends with '1' not 'l'
     is_published = models.BooleanField(default=True)
-    essentia1 = models.BooleanField(default=False,blank=True)
+    essential = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
@@ -50,18 +46,16 @@ class Induction(UserExcludable):
         verbose_name_plural = "Inductions"
 
     def __str__(self):
-        if self.essentia1 == True:
+        if self.essential == True:
             return f'{self.title} (ESSENTIAL)'
-        if self.essentia1 == False:
+        if self.essential == False:
             return f'{self.title}'
 
 class ScriptSuggestion(UserExcludable):
     # id = models.IntegerField(blank=False, null=False)
     title = models.CharField(max_length=300,blank=True)
-    # essential = models.BooleanField(default=False,blank=True)
-    # The following attributes ends with '1' not 'l'
     is_published = models.BooleanField(default=True)
-    essentia1 = models.BooleanField(default=False,blank=True)
+    essential = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
@@ -73,17 +67,15 @@ class ScriptSuggestion(UserExcludable):
         verbose_name_plural = "Scripting (Custom)"
    
     def __str__(self):
-        if self.essentia1 == True:
+        if self.essential == True:
             return f'{self.title} (ESSENTIAL)'
-        if self.essentia1 == False:
+        if self.essential == False:
             return f'{self.title}'
 
 class Research(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
-    # essential = models.BooleanField(default=False,blank=True)
-    # The following attributes ends with '1' not 'l'
     is_published = models.BooleanField(default=True)
-    essentia1 = models.BooleanField(default=False,blank=True)
+    essential = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     # geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
@@ -94,17 +86,15 @@ class Research(UserExcludable):
         verbose_name_plural = "Research"
 
     def __str__(self):
-        if self.essentia1 == True:
+        if self.essential == True:
             return f'{self.title} (ESSENTIAL)'
-        if self.essentia1 == False:
+        if self.essential == False:
             return f'{self.title}'
 
 class StockScript(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
-    # essential = models.BooleanField(default=False,blank=True)
-    # The following attributes ends with '1' not 'l'
     is_published = models.BooleanField(default=True)
-    essentia1 = models.BooleanField(default=False,blank=True)
+    essential = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
@@ -114,17 +104,15 @@ class StockScript(UserExcludable):
         verbose_name_plural = "Scripting (Stock)"
 
     def __str__(self):
-        if self.essentia1 == True:
+        if self.essential == True:
             return f'{self.title} (ESSENTIAL)'
-        if self.essentia1 == False:
+        if self.essential == False:
             return f'{self.title}'
 
 class NYTimes(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
-    # essential = models.BooleanField(default=False,blank=True)
-    # The following attributes ends with '1' not 'l'
     is_published = models.BooleanField(default=True)
-    essentia1 = models.BooleanField(default=False,blank=True)
+    essential = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
@@ -134,17 +122,15 @@ class NYTimes(UserExcludable):
         verbose_name_plural = "NY Times"    
     
     def __str__(self):
-        if self.essentia1 == True:
+        if self.essential == True:
             return f'{self.title} (ESSENTIAL)'
-        if self.essentia1 == False:
+        if self.essential == False:
             return f'{self.title}'
 
 class TorStar(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
-    # essential = models.BooleanField(default=False,blank=True)
-    # The following attributes ends with '1' not 'l'
     is_published = models.BooleanField(default=True)
-    essentia1 = models.BooleanField(default=False,blank=True)
+    essential = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
@@ -154,17 +140,15 @@ class TorStar(UserExcludable):
         verbose_name_plural = "Toronto Star"
 
     def __str__(self):
-        if self.essentia1 == True:
+        if self.essential == True:
             return f'{self.title} (ESSENTIAL)'
-        if self.essentia1 == False:
+        if self.essential == False:
             return f'{self.title}'
 
 class WSJournal(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
-    # essential = models.BooleanField(default=False,blank=True)
-    # The following attributes ends with '1' not 'l'
     is_published = models.BooleanField(default=True)
-    essentia1 = models.BooleanField(default=False,blank=True)
+    essential = models.BooleanField(default=False,blank=True)
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
@@ -174,9 +158,9 @@ class WSJournal(UserExcludable):
         verbose_name_plural = "WSJ"
 
     def __str__(self):
-        if self.essentia1 == True:
+        if self.essential == True:
             return f'{self.title} (ESSENTIAL)'
-        if self.essentia1 == False:
+        if self.essential == False:
             return f'{self.title}'
 
 class AssortedPeriodicals(models.Model):
