@@ -56,9 +56,10 @@
 
     <ul>
         <div class="heading-with-info">
-            <h4> Inductions </h4>
+            <h4> Inductions  </h4>
             {% include 'partials/_info_icon.html' with label="Inductions" text=resource_info.inductions %}
         </div>
+        <br>
         <div class="box">
         {% for induction in inductions  %}
             <li class="flex-item"> - <a href="/portal/inductioning/{{induction.slug}}">{{induction.title}}</a>  {% if induction.essential %}  <span>Essential</span>{% endif %}</li>
