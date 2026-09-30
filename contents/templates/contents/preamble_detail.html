@@ -8,6 +8,7 @@
         <h1 class="title">{{preambles.title}}</h1>
         <!-- <h3><em>Preamble</em></h3> -->
         <div class="author">Author: {{preambles.author}}</div>
+        <div class="publication-date">Published: {{preambles.publication_date|date:"l j F Y"}}</div>
         <div class="detail">{{preambles.body|safe}}</div> <!-- end detail class -->
     {% endif %}
 

@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 #from ckeditor.fields import RichTextField
 
 class UserExcludable(models.Model):
@@ -18,14 +19,14 @@ class Content(models.Model):
 # Create your models here.
 class Preamble(UserExcludable):
     title = models.CharField(max_length=300,blank=True)
-    # essential = models.BooleanField(default=False,blank=True)     
+    # essential = models.BooleanField(default=False,blank=True)
     is_published = models.BooleanField(default=True)
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
     #body = models.RichTextField(config_name='awesome_ckeditor')
-   
-    # posting_date = models.DateField(auto_now=False, auto_now_add=False, **options), https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.DateField
+    publication_date = models.DateField(default=timezone.localdate)
+
     class Meta:
         verbose_name        = "Preamble"
         verbose_name_plural = "Preambles"
@@ -40,6 +41,7 @@ class Induction(UserExcludable):
     author = models.CharField(max_length=30,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
+    publication_date = models.DateField(default=timezone.localdate)
 
     class Meta:
         verbose_name        = "Induction"
@@ -61,7 +63,8 @@ class ScriptSuggestion(UserExcludable):
     body = models.TextField(max_length=300000,blank=True)
     # geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     # changed = LogEntry.objects.filter(action_flag=CHANGE,blank=False, null=False)
-    
+    publication_date = models.DateField(default=timezone.localdate)
+
     class Meta:
         verbose_name        = "Scripting (Custom)"
         verbose_name_plural = "Scripting (Custom)"
@@ -80,7 +83,8 @@ class Research(UserExcludable):
     slug = models.SlugField(unique=True,blank=True)
     # geeks_field = RichTextField(config_name='default',max_length=300000,blank=True)
     body = models.TextField(max_length=300000,blank=True)
-    
+    publication_date = models.DateField(default=timezone.localdate)
+
     class Meta:
         verbose_name        = "Research"
         verbose_name_plural = "Research"
@@ -98,6 +102,7 @@ class StockScript(UserExcludable):
     author = models.CharField(max_length=300,blank=True)
     slug = models.SlugField(unique=True,blank=True)
     body = models.TextField(max_length=300000,blank=True)
+    publication_date = models.DateField(default=timezone.localdate)
 
     class Meta:
         verbose_name        = "Scripting (Stock)"
@@ -183,8 +188,9 @@ class AssortedLiterature(models.Model):
     media_type = models.CharField(max_length=300,blank=True)   
     author_last_name = models.CharField(max_length=300,blank=True)
     publication_year = models.CharField(max_length=300,blank=True)
-    address = models.CharField(max_length=300,blank=True)    
-    title = models.CharField(max_length=300,blank=True)    
+    address = models.CharField(max_length=300,blank=True)
+    title = models.CharField(max_length=300,blank=True)
+    publication_date = models.DateField(default=timezone.localdate)
 
     class Meta:
         verbose_name        = "Assorted Literature"
@@ -196,9 +202,10 @@ class AssortedLiterature(models.Model):
 class Binaurals(models.Model):
     author_last_name = models.CharField(max_length=300,blank=True)
     publication_year = models.CharField(max_length=300,blank=True)
-    address = models.CharField(max_length=300,blank=True)    
-    title = models.CharField(max_length=300,blank=True)    
-    
+    address = models.CharField(max_length=300,blank=True)
+    title = models.CharField(max_length=300,blank=True)
+    publication_date = models.DateField(default=timezone.localdate)
+
     class Meta:
         verbose_name        = "Binaurals"
         verbose_name_plural = "Binaurals"
