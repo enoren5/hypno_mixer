@@ -51,14 +51,15 @@ wheels = [
 
 [[package]]
 name = "gateway-defender"
-version = "0.1.4"
+version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
+    { name = "django-widget-tweaks" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e4/1e/82626b0483a73830f177122b6839b178b1693a87655e7d468cd0be8cabec/gateway_defender-0.1.4.tar.gz", hash = "sha256:1e69013594409f97ea1cb676cc44b56965e198d60dd8a8119a6e60146fa83a0a", size = 91359, upload-time = "2026-02-12T20:25:24.708Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/53/9e/ab4e4fccdd7c2dbf5908a1ff895356097917267b6bd930e8d7103da190c0/gateway_defender-0.3.0.tar.gz", hash = "sha256:e7fffd5a1715dcd3a994387913481c40ab087e8c7acb71ee97f9a0c68de5f643", size = 197104, upload-time = "2026-09-30T01:12:33.634Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f2/f1/b0f86f8dfdd2b9c03a3aa26488a5b9c4eed51403ba6030001ab781407065/gateway_defender-0.1.4-py3-none-any.whl", hash = "sha256:dc307f416243b646cb4366d6d4d6dd02630ed43f3783608e5c67d91f69fc7dda", size = 100220, upload-time = "2026-02-12T20:25:23.157Z" },
+    { url = "https://files.pythonhosted.org/packages/76/97/60704b2ef186d32c05b2d4ffb4a4254d3adc7ce5b489f6c26678e368e9ba/gateway_defender-0.3.0-py3-none-any.whl", hash = "sha256:781b2d9861a5ef7fd5b96cc36a9e19bc5ad486a2a869720a6b2cc73975614732", size = 217238, upload-time = "2026-09-30T01:12:31.898Z" },
 ]
 
 [[package]]
@@ -97,7 +98,7 @@ requires-dist = [
     { name = "dj-database-url", specifier = "==3.1.2" },
     { name = "django", specifier = ">=6" },
     { name = "django-widget-tweaks", specifier = "==1.5.1" },
-    { name = "gateway-defender", specifier = "==0.1.4" },
+    { name = "gateway-defender", specifier = "==0.3.0" },
     { name = "gunicorn", specifier = "==25.1.0" },
     { name = "pillow", specifier = "==12.1.1" },
     { name = "psycopg2", specifier = "==2.9.11" },
