@@ -1,0 +1,5 @@
+{# Usage: {% include 'partials/_info_icon.html' with label="Inductions" text=resource_info.inductions %} #}
+<span class="info-wrap">
+    <button type="button" class="info-icon" aria-label="Information about {{ label }}">i</button>
+    <span class="info-bubble" role="tooltip">{{ text|default:"No information provided yet." }}</span>
+</span>

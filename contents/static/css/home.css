@@ -151,10 +151,80 @@ margin-bottom: 50px;
 
 div.box span{
   clear:both;
-  background: gray; 
+  background: gray;
   color:white;
-  padding:2px 5px; 
+  padding:2px 5px;
   border-radius:5px;
+}
+
+/* Info-icon + bubble, next to a heading (see partials/_info_icon.html) */
+.heading-with-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.heading-with-info h4 {
+  margin: 0;
+}
+
+.info-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: #006200;
+  color: white;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 0.75em;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+}
+
+.info-icon:hover,
+.info-icon:focus,
+.info-icon.active {
+  background: #2771b5;
+  outline: none;
+}
+
+.info-bubble {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  background: #333;
+  color: white;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.info-icon:hover + .info-bubble,
+.info-icon:focus + .info-bubble,
+.info-bubble.show {
+  display: block;
 }
 
 /* Scrollbar styles */

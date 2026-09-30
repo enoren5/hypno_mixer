@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView
-from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes, TorStar, WSJournal,AssortedPeriodicals,AssortedLiterature,Binaurals
+from .models import Preamble, Induction, Research, ScriptSuggestion,StockScript,Content,NYTimes, TorStar, WSJournal,AssortedPeriodicals,AssortedLiterature,Binaurals,ResourceCategoryInfo
 # from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
@@ -130,10 +130,14 @@ class ContentListView(ListView):
             ).order_by('-last_change')
      
     
-        context["assorted_literature"] = AssortedLiterature.objects.order_by("-id") 
-        context["assorted_periodicals"] = AssortedPeriodicals.objects.order_by("-id") 
-        context["binaurals"] = Binaurals.objects.order_by("-id") 
-        
+        context["assorted_literature"] = AssortedLiterature.objects.order_by("-id")
+        context["assorted_periodicals"] = AssortedPeriodicals.objects.order_by("-id")
+        context["binaurals"] = Binaurals.objects.order_by("-id")
+
+        context["resource_info"] = {
+            info.category: info.info_text for info in ResourceCategoryInfo.objects.all()
+        }
+
         return context
 
 @method_decorator(protected_redirect,name='dispatch')

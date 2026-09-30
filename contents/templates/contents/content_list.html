@@ -54,8 +54,11 @@
           <br>
     <div class="container flex-container wrap">
 
-    <ul>    
-        <h4> Inductions </h4>
+    <ul>
+        <div class="heading-with-info">
+            <h4> Inductions </h4>
+            {% include 'partials/_info_icon.html' with label="Inductions" text=resource_info.inductions %}
+        </div>
         <div class="box">
         {% for induction in inductions  %}
             <li class="flex-item"> - <a href="/portal/inductioning/{{induction.slug}}">{{induction.title}}</a>  {% if induction.essential %}  <span>Essential</span>{% endif %}</li>
@@ -64,8 +67,11 @@
     </ul>
 
 
-    <ul>        
-        <h4> Customized <br> Scripts </h4>
+    <ul>
+        <div class="heading-with-info">
+            <h4> Customized <br> Scripts </h4>
+            {% include 'partials/_info_icon.html' with label="Customized Scripts" text=resource_info.custom_scripts %}
+        </div>
         <div class="box">
         {% for script in scriptsuggestions %}
             <li class="flex-item"> - <a href="{% url 'contents:scriptsuggestion_detail' slug=script.slug %}">{{script.title}}</a>  {% if script.essential %}  <span>Essential</span>{% endif %}</li>
@@ -73,8 +79,11 @@
          </div> <!-- end  box -->
     </ul>
 
-    <ul>        
-        <h4> Base \ Source <br> Scripts </h4>
+    <ul>
+        <div class="heading-with-info">
+            <h4> Base \ Source <br> Scripts </h4>
+            {% include 'partials/_info_icon.html' with label="Base / Source Scripts" text=resource_info.stock_scripts %}
+        </div>
         <div class="box">
         {% for script in stockscripts %}
             <li class="flex-item"> - <a href="/portal/stock_scripting/{{script.slug}}">{{script.title}}</a>  {% if script.essential %}  <span>Essential</span>{% endif %}</li>
@@ -82,10 +91,13 @@
         </div> <!-- end  box -->
     </ul>
 
-    <ul>    
-        <h4> Binaural <br> Audio Files </h4>
+    <ul>
+        <div class="heading-with-info">
+            <h4> Binaural <br> Audio Files </h4>
+            {% include 'partials/_info_icon.html' with label="Binaural Audio Files" text=resource_info.binaurals %}
+        </div>
         <div class="box">
-        
+
         {% for item in binaurals  %}
             <li class="flex-item"> - {{item.author_last_name}} ({{item.publication_year}}) <a href="{{item.address}}">{{item.title}}</a> </li>
         {% endfor %}
@@ -160,6 +172,28 @@
 
 </center>
 {% include 'partials/_footer.html' %}
+
+<script>
+  // Tap-to-toggle for the info-icon bubbles. :hover/:focus in home.css
+  // already covers mouse-over on desktop; this covers tap on mobile,
+  // where a tapped <button> isn't reliably focused (notably iOS Safari).
+  document.addEventListener('click', function (event) {
+    var tappedIcon = event.target.closest('.info-icon');
+
+    document.querySelectorAll('.info-bubble.show').forEach(function (bubble) {
+      if (!tappedIcon || bubble !== tappedIcon.nextElementSibling) {
+        bubble.classList.remove('show');
+        bubble.previousElementSibling.classList.remove('active');
+      }
+    });
+
+    if (tappedIcon) {
+      var bubble = tappedIcon.nextElementSibling;
+      bubble.classList.toggle('show');
+      tappedIcon.classList.toggle('active');
+    }
+  });
+</script>
 {% endblock %}
 
 

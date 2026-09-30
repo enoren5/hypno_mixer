@@ -16,6 +16,29 @@ class GatewayProtect(models.Model):
 class Content(models.Model):
     pass
 
+class ResourceCategoryInfo(models.Model):
+    # Powers the info-bubble icon next to each Practice Resources heading
+    # in content_list.html. One row per category; seeded by migration
+    # 0032 so a superuser only has to fill in info_text, not create rows.
+    class Category(models.TextChoices):
+        INDUCTIONS = 'inductions', 'Inductions'
+        CUSTOM_SCRIPTS = 'custom_scripts', 'Customized Scripts'
+        STOCK_SCRIPTS = 'stock_scripts', 'Base / Source Scripts'
+        BINAURALS = 'binaurals', 'Binaural Audio Files'
+
+    category = models.CharField(max_length=20, choices=Category.choices, unique=True)
+    info_text = models.TextField(
+        blank=True,
+        help_text="Shown in the info bubble next to this category's heading on the resources page.",
+    )
+
+    class Meta:
+        verbose_name        = "Resource Category Info"
+        verbose_name_plural = "Resource Category Info"
+
+    def __str__(self):
+        return self.get_category_display()
+
 # Create your models here.
 class Preamble(UserExcludable):
     title = models.CharField(max_length=300,blank=True)

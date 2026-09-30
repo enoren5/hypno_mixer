@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Preamble,Induction, ScriptSuggestion, Research, StockScript, NYTimes, TorStar, WSJournal,AssortedPeriodicals,AssortedLiterature,Binaurals
+from .models import Preamble,Induction, ScriptSuggestion, Research, StockScript, NYTimes, TorStar, WSJournal,AssortedPeriodicals,AssortedLiterature,Binaurals,ResourceCategoryInfo
 
 admin.site.register(Preamble)
 admin.site.register(Induction)
@@ -22,3 +22,7 @@ class AssortedLiteratureAdmin(admin.ModelAdmin):
 @admin.register(Binaurals)
 class BinauralsAdmin(admin.ModelAdmin):
     list_display = ("title", "author_last_name", "publication_year")
+
+@admin.register(ResourceCategoryInfo)
+class ResourceCategoryInfoAdmin(admin.ModelAdmin):
+    list_display = ("category", "info_text")
